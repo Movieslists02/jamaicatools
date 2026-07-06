@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import tools from "../data/tools";
+import LoanCalculator from "../components/calculators/LoanCalculator";
 
 function ToolDetails() {
   const { slug } = useParams();
@@ -53,13 +54,9 @@ function ToolDetails() {
               </p>
 
               <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-slate-900">
-                  Tool Coming Soon
-                </h2>
-                <p className="mt-3 text-slate-600">
-                  This tool page is ready. Next, we will connect the working
-                  calculator or utility here.
-                </p>
+                {tool.slug === "loan-calculator" && (
+    <LoanCalculator />
+)}
               </div>
             </div>
 
