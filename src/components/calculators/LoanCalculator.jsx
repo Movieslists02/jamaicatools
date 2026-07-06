@@ -5,6 +5,8 @@ function LoanCalculator() {
   const [interest, setInterest] = useState("");
   const [years, setYears] = useState("");
   const [error, setError] = useState("");
+  const [frequency, setFrequency] = useState("monthly");
+
 
   const [monthlyPayment, setMonthlyPayment] = useState(null);
   const [totalPayment, setTotalPayment] = useState(null);
@@ -54,10 +56,27 @@ const formatCurrency = (value) =>
     const payments = termYears * 12;
     const x = Math.pow(1 + monthlyRate, payments);
     const monthly = (principal * monthlyRate * x) / (x - 1);
-    const total = monthly * payments;
-    const interestPaid = total - principal;
 
-    setMonthlyPayment(monthly);
+let payment = monthly;
+
+if (frequency === "fortnightly") {
+  payment = monthly * 12 / 26;
+}
+
+if (frequency === "weekly") {
+  payment = monthly * 12 / 52;
+}
+
+const total = payment *
+  (frequency === "monthly"
+    ? payments
+    : frequency === "fortnightly"
+    ? termYears * 26
+    : termYears * 52);
+
+const interestPaid = total - principal;
+
+setMonthlyPayment(payment);
     setTotalPayment(total);
     setTotalInterest(interestPaid);
   };
@@ -65,23 +84,35 @@ const formatCurrency = (value) =>
   return (
     <div className="w-full max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
       <h2 className="mb-8 text-2xl font-bold">Loan Calculator</h2>
+      <div className="grid gap-6 md:grid-cols-2">
+  <div>
+    <label className="mb-2 block font-semibold">Loan Amount</label>
+    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="500000" className="w-full rounded-xl border p-3" />
+  </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        <div>
-          <label className="mb-2 block font-semibold">Loan Amount</label>
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="500000" className="w-full rounded-xl border p-3" />
-        </div>
+  <div>
+    <label className="mb-2 block font-semibold">Interest Rate (%)</label>
+    <input type="number" value={interest} onChange={(e) => setInterest(e.target.value)} placeholder="8" className="w-full rounded-xl border p-3" />
+  </div>
 
-        <div>
-          <label className="mb-2 block font-semibold">Interest Rate (%)</label>
-          <input type="number" value={interest} onChange={(e) => setInterest(e.target.value)} placeholder="8" className="w-full rounded-xl border p-3" />
-        </div>
+  <div>
+    <label className="mb-2 block font-semibold">Loan Term (Years)</label>
+    <input type="number" value={years} onChange={(e) => setYears(e.target.value)} placeholder="5" className="w-full rounded-xl border p-3" />
+  </div>
 
-        <div>
-          <label className="mb-2 block font-semibold">Loan Term (Years)</label>
-          <input type="number" value={years} onChange={(e) => setYears(e.target.value)} placeholder="5" className="w-full rounded-xl border p-3" />
-        </div>
-      </div>
+  <div>
+    <label className="mb-2 block font-semibold">Payment Frequency</label>
+    <select
+      value={frequency}
+      onChange={(e) => setFrequency(e.target.value)}
+      className="h-14 w-full rounded-xl border px-4"
+    >
+      <option value="monthly">Monthly</option>
+      <option value="fortnightly">Fortnightly</option>
+      <option value="weekly">Weekly</option>
+    </select>
+  </div>
+</div>
 
       <button onClick={calculateLoan} className="mt-8 rounded-xl bg-green-700 px-8 py-3 font-semibold text-white hover:bg-green-800">
         Calculate
@@ -97,11 +128,23 @@ const formatCurrency = (value) =>
   <>
     <div className="mt-10 grid gap-4 xl:grid-cols-3">
       <div className="rounded-xl bg-green-50 p-6">
-        <p className="text-sm text-slate-500">Monthly Payment</p>
+        <p className="text-sm text-slate-500">{
+  frequency === "monthly"
+    ? "Monthly Payment"
+    : frequency === "fortnightly"
+    ? "Fortnightly Payment"
+    : "Weekly Payment"
+}</p>
         <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-green-700">
           {formatCurrency(monthlyPayment)}
         </h3>
-        <p className="mt-2 text-sm text-slate-500">Due every month</p>
+        <p className="mt-2 text-sm text-slate-500">{
+  frequency === "monthly"
+    ? "Due every month"
+    : frequency === "fortnightly"
+    ? "Due every 2 weeks"
+    : "Due every week"
+}</p>
       </div>
 
       <div className="rounded-xl bg-blue-50 p-6">
@@ -128,7 +171,12 @@ const formatCurrency = (value) =>
         <p>Loan Amount: <strong>{formatCurrency(parseFloat(amount))}</strong></p>
         <p>Interest Rate: <strong>{parseFloat(interest).toFixed(2)}%</strong></p>
         <p>Loan Term: <strong>{years} years</strong></p>
-        <p>Monthly Payment: <strong>{formatCurrency(monthlyPayment)}</strong></p>
+        <p>{frequency.charAt(0).toUpperCase() + frequency.slice(1)} Payment:<strong>{formatCurrency(monthlyPayment)}</strong></p>
+        <p>
+  Payment Frequency: <strong>
+    {frequency.charAt(0).toUpperCase() + frequency.slice(1)}
+  </strong>
+</p>
         <p>Total Interest: <strong>{formatCurrency(totalInterest)}</strong></p>
         <p>Total Repayment: <strong>{formatCurrency(totalPayment)}</strong></p>
       </div>
