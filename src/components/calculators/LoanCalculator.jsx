@@ -63,7 +63,7 @@ const formatCurrency = (value) =>
   };
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
+    <div className="w-full max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
       <h2 className="mb-8 text-2xl font-bold">Loan Calculator</h2>
 
       <div className="grid gap-6 md:grid-cols-3">
@@ -95,10 +95,10 @@ const formatCurrency = (value) =>
 
       {monthlyPayment && (
   <>
-    <div className="mt-10 grid gap-6 md:grid-cols-3">
+    <div className="mt-10 grid gap-4 xl:grid-cols-3">
       <div className="rounded-xl bg-green-50 p-6">
         <p className="text-sm text-slate-500">Monthly Payment</p>
-        <h3 className="mt-2 text-3xl font-bold text-green-700">
+        <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-green-700">
           {formatCurrency(monthlyPayment)}
         </h3>
         <p className="mt-2 text-sm text-slate-500">Due every month</p>
@@ -106,7 +106,7 @@ const formatCurrency = (value) =>
 
       <div className="rounded-xl bg-blue-50 p-6">
         <p className="text-sm text-slate-500">Total Interest</p>
-        <h3 className="mt-2 text-3xl font-bold text-blue-700">
+        <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-blue-700">
           {formatCurrency(totalInterest)}
         </h3>
         <p className="mt-2 text-sm text-slate-500">Interest over loan life</p>
@@ -114,7 +114,7 @@ const formatCurrency = (value) =>
 
       <div className="rounded-xl bg-orange-50 p-6">
         <p className="text-sm text-slate-500">Total Repayment</p>
-        <h3 className="mt-2 text-3xl font-bold text-orange-700">
+        <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-orange-700">
           {formatCurrency(totalPayment)}
         </h3>
         <p className="mt-2 text-sm text-slate-500">Principal + interest</p>
