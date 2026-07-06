@@ -1,6 +1,8 @@
 import Hero from "../components/home/Hero";
 import SearchBar from "../components/home/SearchBar";
 import Categories from "../components/home/Categories";
+import FeaturedTools from "../components/home/FeaturedTools";
+import LatestArticles from "../components/home/LatestArticles";
 
 function Home() {
   return (
@@ -8,6 +10,8 @@ function Home() {
       <Hero />
       <SearchBar />
       <Categories />
+      <FeaturedTools />
+      <LatestArticles />
     </>
   );
 }
