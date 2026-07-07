@@ -17,11 +17,17 @@ function LoanCalculator() {
   const [paymentAmount, setPaymentAmount] = useState(null);
   const [totalPayment, setTotalPayment] = useState(null);
   const [totalInterest, setTotalInterest] = useState(null);
+  const [firstPrincipal, setFirstPrincipal] = useState(null);
+  const [firstInterest, setFirstInterest] = useState(null);
+  const [firstBalance, setFirstBalance] = useState(null);
 
   const clearResults = () => {
     setPaymentAmount(null);
     setTotalInterest(null);
     setTotalPayment(null);
+    setFirstPrincipal(null);
+    setFirstInterest(null);
+    setFirstBalance(null);
     setError("");
   };
 
@@ -47,13 +53,9 @@ function LoanCalculator() {
       termYears <= 0
     ) {
       setError("Please enter a valid loan amount, interest rate, and loan term.");
-      setPaymentAmount(null);
-      setTotalPayment(null);
-      setTotalInterest(null);
+      clearResults();
       return;
     }
-
-    setError("");
 
     const monthlyRate = annualRate / 100 / 12;
     const monthlyPayments = termYears * 12;
@@ -62,23 +64,34 @@ function LoanCalculator() {
 
     let payment = monthly;
     let numberOfPayments = monthlyPayments;
+    let periodInterestRate = monthlyRate;
 
     if (frequency === "fortnightly") {
       payment = (monthly * 12) / 26;
       numberOfPayments = termYears * 26;
+      periodInterestRate = annualRate / 100 / 26;
     }
 
     if (frequency === "weekly") {
       payment = (monthly * 12) / 52;
       numberOfPayments = termYears * 52;
+      periodInterestRate = annualRate / 100 / 52;
     }
 
     const total = payment * numberOfPayments;
     const interestPaid = total - principal;
 
+    const firstInterestAmount = principal * periodInterestRate;
+    const firstPrincipalAmount = payment - firstInterestAmount;
+    const remainingBalance = principal - firstPrincipalAmount;
+
+    setError("");
     setPaymentAmount(payment);
     setTotalPayment(total);
     setTotalInterest(interestPaid);
+    setFirstInterest(firstInterestAmount);
+    setFirstPrincipal(firstPrincipalAmount);
+    setFirstBalance(remainingBalance);
   };
 
   const paymentLabel =
@@ -113,9 +126,10 @@ function LoanCalculator() {
               setAmount(e.target.value);
               clearResults();
             }}
-            placeholder="e.g. 500,000"
+            placeholder="500000"
             className="h-14 w-full rounded-xl border px-4"
           />
+          <p className="mt-2 text-xs text-slate-500">Example: 500000</p>
         </div>
 
         <div>
@@ -129,9 +143,10 @@ function LoanCalculator() {
               setInterest(e.target.value);
               clearResults();
             }}
-            placeholder="e.g. 8"
+            placeholder="8"
             className="h-14 w-full rounded-xl border px-4"
           />
+          <p className="mt-2 text-xs text-slate-500">Annual interest rate</p>
         </div>
 
         <div>
@@ -145,9 +160,10 @@ function LoanCalculator() {
               setYears(e.target.value);
               clearResults();
             }}
-            placeholder="e.g. 5"
+            placeholder="5"
             className="h-14 w-full rounded-xl border px-4"
           />
+          <p className="mt-2 text-xs text-slate-500">Years to repay</p>
         </div>
 
         <div>
@@ -164,20 +180,21 @@ function LoanCalculator() {
             <option value="fortnightly">Fortnightly</option>
             <option value="weekly">Weekly</option>
           </select>
+          <p className="mt-2 text-xs text-slate-500">Choose repayment schedule</p>
         </div>
       </div>
 
-      <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
         <button
           onClick={calculateLoan}
-          className="rounded-xl bg-green-700 px-8 py-3 font-semibold text-white hover:bg-green-800"
+          className="h-14 flex-1 rounded-xl bg-green-700 px-8 font-semibold text-white hover:bg-green-800"
         >
           Calculate
         </button>
 
         <button
           onClick={resetCalculator}
-          className="rounded-xl border border-slate-300 px-8 py-3 font-semibold text-slate-700 hover:border-green-700 hover:text-green-700"
+          className="h-14 rounded-xl border border-slate-300 px-8 font-semibold text-slate-700 hover:border-green-700 hover:text-green-700"
         >
           Reset
         </button>
@@ -193,7 +210,7 @@ function LoanCalculator() {
         <>
           <div className="mt-10 grid gap-4 xl:grid-cols-3">
             <div className="rounded-xl bg-green-50 p-6">
-              <p className="text-sm text-slate-500">{paymentLabel}</p>
+              <p className="text-sm text-slate-500">💵 {paymentLabel}</p>
               <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-green-700">
                 {formatCurrency(paymentAmount)}
               </h3>
@@ -201,7 +218,7 @@ function LoanCalculator() {
             </div>
 
             <div className="rounded-xl bg-blue-50 p-6">
-              <p className="text-sm text-slate-500">Total Interest</p>
+              <p className="text-sm text-slate-500">📈 Total Interest</p>
               <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-blue-700">
                 {formatCurrency(totalInterest)}
               </h3>
@@ -211,7 +228,7 @@ function LoanCalculator() {
             </div>
 
             <div className="rounded-xl bg-orange-50 p-6">
-              <p className="text-sm text-slate-500">Total Repayment</p>
+              <p className="text-sm text-slate-500">🏦 Total Repayment</p>
               <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-orange-700">
                 {formatCurrency(totalPayment)}
               </h3>
@@ -225,10 +242,10 @@ function LoanCalculator() {
             <h3 className="text-xl font-bold text-slate-900">Loan Summary</h3>
 
             <div className="mt-5 grid grid-cols-2 gap-y-3 text-sm">
-              <span className="text-slate-600">Loan Amount</span>
+              <span className="font-semibold text-slate-900">Loan Amount</span>
               <strong>{formatCurrency(parseFloat(amount))}</strong>
 
-              <span className="text-slate-600">Interest Rate</span>
+              <span className="font-semibold text-green-700">Interest Rate</span>
               <strong>{parseFloat(interest).toFixed(2)}%</strong>
 
               <span className="text-slate-600">Loan Term</span>
@@ -237,13 +254,15 @@ function LoanCalculator() {
               <span className="text-slate-600">Payment Frequency</span>
               <strong>{frequencyLabel}</strong>
 
-              <span className="text-slate-600">{paymentLabel}</span>
+              <span className="font-semibold text-green-700">{paymentLabel}</span>
               <strong>{formatCurrency(paymentAmount)}</strong>
 
-              <span className="text-slate-600">Total Interest</span>
+              <span className="font-semibold text-blue-700">Total Interest</span>
               <strong>{formatCurrency(totalInterest)}</strong>
 
-              <span className="text-slate-600">Total Repayment</span>
+              <span className="font-semibold text-orange-700">
+                Total Repayment
+              </span>
               <strong>{formatCurrency(totalPayment)}</strong>
             </div>
           </div>
@@ -252,10 +271,20 @@ function LoanCalculator() {
             <h3 className="text-xl font-bold text-slate-900">
               First Payment Preview
             </h3>
-            <p className="mt-3 text-sm text-slate-600">
-              This is an estimate of your first payment. A full amortization
-              schedule will be added later.
-            </p>
+
+            <div className="mt-5 grid grid-cols-2 gap-y-3 text-sm">
+              <span className="text-slate-600">Payment Amount</span>
+              <strong>{formatCurrency(paymentAmount)}</strong>
+
+              <span className="text-slate-600">Estimated Interest</span>
+              <strong>{formatCurrency(firstInterest)}</strong>
+
+              <span className="text-slate-600">Estimated Principal</span>
+              <strong>{formatCurrency(firstPrincipal)}</strong>
+
+              <span className="text-slate-600">Remaining Balance</span>
+              <strong>{formatCurrency(firstBalance)}</strong>
+            </div>
           </div>
         </>
       )}
