@@ -27,31 +27,24 @@ const tools = [
     ]
   },
 
+  
   {
-    id: 2,
-    slug: "salary-calculator",
-    title: "Salary Calculator",
-    category: "Finance",
-    description:
-      "Calculate Jamaican income tax, NHT, NIS, Education Tax and take-home pay.",
-    icon: "💵",
-    featured: true,
-    popular: true,
-    new: true,
-    keywords: [
-      "salary",
-      "jamaica",
-      "tax",
-      "income"
-    ],
-    seoTitle: "Jamaica Salary Calculator",
-    seoDescription:
-      "Calculate your Jamaican salary after deductions.",
-    relatedTools: [
-      "loan-calculator",
-      "mortgage-calculator"
-    ]
-  },
+  id: 2,
+  slug: "salary-calculator",
+  title: "Salary Calculator",
+  category: "Finance",
+  description:
+    "Estimate Jamaican PAYE, NIS, NHT, Education Tax and take-home pay.",
+  icon: "💵",
+  featured: true,
+  popular: true,
+  new: true,
+  keywords: ["salary", "jamaica", "tax", "paye", "nis", "nht"],
+  seoTitle: "Jamaica Salary Calculator | JamaicaTools",
+  seoDescription:
+    "Estimate your Jamaican salary after PAYE, NIS, NHT and Education Tax deductions.",
+  relatedTools: ["loan-calculator", "mortgage-calculator"],
+},
 
   {
     id: 3,
