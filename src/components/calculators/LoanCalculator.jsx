@@ -4,6 +4,8 @@ import CalculatorShell from "../common/CalculatorShell";
 import CalculatorHeader from "../common/CalculatorHeader";
 import CalculatorSummary from "../common/CalculatorSummary";
 import CalculatorActions from "../common/CalculatorActions";
+import ToolDisclaimer from "../common/ToolDisclaimer";
+
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JM", {
@@ -290,11 +292,10 @@ function LoanCalculator() {
         </>
       )}
 
-      <div className="mt-8 rounded-xl bg-slate-100 p-4 text-sm text-slate-600">
-        <strong>Disclaimer:</strong> This calculator provides an estimate only.
-        Actual loan repayments may vary depending on lender fees, insurance,
-        taxes, and lending policies.
-      </div>
+      <ToolDisclaimer>
+  This calculator provides an estimate only. Actual loan repayments may vary
+  depending on lender fees, insurance, taxes, and lending policies.
+</ToolDisclaimer>
     </CalculatorShell>
   );
 }
