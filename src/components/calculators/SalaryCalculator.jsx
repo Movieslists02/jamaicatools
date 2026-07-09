@@ -4,6 +4,8 @@ import { copyResults as copyToClipboard } from "../../utils/copyResults";
 import ResultCard from "../common/ResultCard";
 import CalculatorShell from "../common/CalculatorShell";
 import CalculatorHeader from "../common/CalculatorHeader";
+import CalculatorSummary from "../common/CalculatorSummary";
+
 
 function SalaryCalculator() {
   const [grossSalary, setGrossSalary] = useState("");
@@ -251,28 +253,46 @@ setResult({
   </div>
 )}
 
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="text-xl font-bold text-slate-900">
-              Payroll Summary
-            </h3>
-
-            <div className="mt-5 divide-y divide-slate-200">
-              {[
-                ["💰 Gross Pay", result.gross, "text-slate-900"],
-                ["🧾 PAYE", result.paye, "text-red-700"],
-                ["🛡️ NIS", result.nis, "text-indigo-700"],
-                ["🏠 NHT", result.nht, "text-purple-700"],
-                ["🎓 Education Tax", result.educationTax, "text-amber-700"],
-                ["Total Deductions", result.totalDeductions, "text-blue-700"],
-                ["Estimated Net Pay", result.netPay, "text-green-700"],
-              ].map(([label, value, color]) => (
-                <div key={label} className="flex justify-between py-3">
-                  <span className={`font-semibold ${color}`}>{label}</span>
-                  <strong>{formatCurrency(value)}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
+          <CalculatorSummary
+  title="Payroll Summary"
+  items={[
+    {
+      label: "💰 Gross Pay",
+      value: formatCurrency(result.gross),
+      color: "text-slate-900",
+    },
+    {
+      label: "🧾 PAYE",
+      value: formatCurrency(result.paye),
+      color: "text-red-700",
+    },
+    {
+      label: "🛡️ NIS",
+      value: formatCurrency(result.nis),
+      color: "text-indigo-700",
+    },
+    {
+      label: "🏠 NHT",
+      value: formatCurrency(result.nht),
+      color: "text-purple-700",
+    },
+    {
+      label: "🎓 Education Tax",
+      value: formatCurrency(result.educationTax),
+      color: "text-amber-700",
+    },
+    {
+      label: "Total Deductions",
+      value: formatCurrency(result.totalDeductions),
+      color: "text-blue-700",
+    },
+    {
+      label: "Estimated Net Pay",
+      value: formatCurrency(result.netPay),
+      color: "text-green-700",
+    },
+  ]}
+/>
 
           <p className="mt-1 text-sm text-slate-500">
   Calculated {new Date().toLocaleString()}
