@@ -5,6 +5,7 @@ import ResultCard from "../common/ResultCard";
 import CalculatorShell from "../common/CalculatorShell";
 import CalculatorHeader from "../common/CalculatorHeader";
 import CalculatorSummary from "../common/CalculatorSummary";
+import CalculatorActions from "../common/CalculatorActions";
 
 
 function SalaryCalculator() {
@@ -168,36 +169,14 @@ setResult({
           </p>
         </div>
       </div>
-
-      <div className="mt-8 flex flex-wrap gap-4">
-        <button
-          onClick={calculateSalary}
-          className="h-14 flex-1 rounded-xl bg-green-700 px-8 font-semibold text-white hover:bg-green-800"
-        >
-          Calculate Take-Home Pay
-        </button>
-
-        <button
-          onClick={resetCalculator}
-          className="h-14 rounded-xl border border-slate-300 px-8 font-semibold text-slate-700 hover:border-green-700 hover:text-green-700"
-        >
-          Reset
-        </button>
-
-        <button
-  onClick={handleCopyResults}
-  disabled={!result}
-  className={`h-14 rounded-xl px-8 font-semibold transition-all duration-300
-    ${
-      message
-        ? "border border-green-600 bg-green-600 text-white"
-        : "border border-blue-300 text-blue-700 hover:bg-blue-50"
-    }
-    disabled:cursor-not-allowed disabled:opacity-40`}
->
-  {message ? "✅ Copied!" : "📋 Copy Results"}
-</button>
-      </div>
+<CalculatorActions
+  onCalculate={calculateSalary}
+  onReset={resetCalculator}
+  onCopy={handleCopyResults}
+  disableCopy={!result}
+  calculateLabel="Calculate Take-Home Pay"
+  isCopied={Boolean(message)}
+/>
 
     
       {error && (
