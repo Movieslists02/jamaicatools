@@ -3,6 +3,7 @@ import ResultCard from "../common/ResultCard";
 import CalculatorShell from "../common/CalculatorShell";
 import CalculatorHeader from "../common/CalculatorHeader";
 import CalculatorSummary from "../common/CalculatorSummary";
+import CalculatorActions from "../common/CalculatorActions";
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JM", {
@@ -191,21 +192,11 @@ function LoanCalculator() {
         </div>
       </div>
 
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-        <button
-          onClick={calculateLoan}
-          className="h-14 flex-1 rounded-xl bg-green-700 px-8 font-semibold text-white hover:bg-green-800"
-        >
-          Calculate
-        </button>
-
-        <button
-          onClick={resetCalculator}
-          className="h-14 rounded-xl border border-slate-300 px-8 font-semibold text-slate-700 hover:border-green-700 hover:text-green-700"
-        >
-          Reset
-        </button>
-      </div>
+      <CalculatorActions
+  onCalculate={calculateLoan}
+  onReset={resetCalculator}
+  calculateLabel="Calculate Loan Payment"
+/>
 
       {error && (
         <div className="mt-6 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
