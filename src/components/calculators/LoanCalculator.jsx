@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ResultCard from "../common/ResultCard";
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JM", {
@@ -209,34 +210,27 @@ function LoanCalculator() {
       {paymentAmount && (
         <>
           <div className="mt-10 grid gap-4 xl:grid-cols-3">
-            <div className="rounded-xl bg-green-50 p-6">
-              <p className="text-sm text-slate-500">💵 {paymentLabel}</p>
-              <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-green-700">
-                {formatCurrency(paymentAmount)}
-              </h3>
-              <p className="mt-2 text-sm text-slate-500">{paymentSubtitle}</p>
-            </div>
+  <ResultCard
+    label={paymentLabel}
+    value={formatCurrency(paymentAmount)}
+    helper={paymentSubtitle}
+    color="green"
+  />
 
-            <div className="rounded-xl bg-blue-50 p-6">
-              <p className="text-sm text-slate-500">📈 Total Interest</p>
-              <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-blue-700">
-                {formatCurrency(totalInterest)}
-              </h3>
-              <p className="mt-2 text-sm text-slate-500">
-                Interest over loan life
-              </p>
-            </div>
+  <ResultCard
+    label="Total Interest"
+    value={formatCurrency(totalInterest)}
+    helper="Interest over loan life"
+    color="blue"
+  />
 
-            <div className="rounded-xl bg-orange-50 p-6">
-              <p className="text-sm text-slate-500">🏦 Total Repayment</p>
-              <h3 className="mt-2 whitespace-nowrap text-2xl font-bold text-orange-700">
-                {formatCurrency(totalPayment)}
-              </h3>
-              <p className="mt-2 text-sm text-slate-500">
-                Principal + interest
-              </p>
-            </div>
-          </div>
+  <ResultCard
+    label="Total Repayment"
+    value={formatCurrency(totalPayment)}
+    helper="Principal + interest"
+    color="orange"
+  />
+</div>
 
           <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <h3 className="text-xl font-bold text-slate-900">Loan Summary</h3>
