@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { copyResults as copyToClipboard } from "../../utils/copyResults";
-
+import ResultCard from "../common/ResultCard";
 
 function SalaryCalculator() {
   const [grossSalary, setGrossSalary] = useState("");
@@ -210,31 +210,27 @@ setResult({
       {result && (
         <>
           <div className="mt-10 grid gap-4 xl:grid-cols-3">
-            <div className="min-w-0 rounded-xl bg-green-50 p-6">
-              <p className="text-sm text-slate-500">💵 Estimated Net Pay</p>
-              <h3 className="mt-2 break-words text-lg font-bold text-green-700 sm:text-xl">
-                {formatCurrency(result.netPay)}
-              </h3>
-              <p className="mt-2 text-sm text-slate-500">After deductions</p>
-            </div>
+  <ResultCard
+    label="💵 Estimated Net Pay"
+    value={formatCurrency(result.netPay)}
+    helper="After deductions"
+    color="green"
+  />
 
-            <div className="min-w-0 rounded-xl bg-blue-50 p-6">
-              <p className="text-sm text-slate-500">📊 Total Deductions</p>
-              <h3 className="mt-2 break-words text-lg font-bold text-blue-700 sm:text-xl">
-                {formatCurrency(result.totalDeductions)}
-              </h3>
-              <p className="mt-2 text-sm text-slate-500">PAYE, NIS, NHT, tax</p>
-            </div>
+  <ResultCard
+    label="📊 Total Deductions"
+    value={formatCurrency(result.totalDeductions)}
+    helper="PAYE, NIS, NHT, tax"
+    color="blue"
+  />
 
-            <div className="min-w-0 rounded-xl bg-orange-50 p-6">
-              <p className="text-sm text-slate-500">🏦 Gross Pay</p>
-              <h3 className="mt-2 break-words text-lg font-bold text-orange-700 sm:text-xl">
-
-                {formatCurrency(result.gross)}
-              </h3>
-              <p className="mt-2 text-sm text-slate-500">Before deductions</p>
-            </div>
-          </div>
+  <ResultCard
+    label="🏦 Gross Pay"
+    value={formatCurrency(result.gross)}
+    helper="Before deductions"
+    color="orange"
+  />
+</div>
 
           {message && (
   <div
