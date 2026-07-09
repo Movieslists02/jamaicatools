@@ -2,6 +2,7 @@ import { useState } from "react";
 import ResultCard from "../common/ResultCard";
 import CalculatorShell from "../common/CalculatorShell";
 import CalculatorHeader from "../common/CalculatorHeader";
+import CalculatorSummary from "../common/CalculatorSummary";
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JM", {
@@ -237,34 +238,44 @@ function LoanCalculator() {
   />
 </div>
 
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="text-xl font-bold text-slate-900">Loan Summary</h3>
-
-            <div className="mt-5 grid grid-cols-2 gap-y-3 text-sm">
-              <span className="font-semibold text-slate-900">Loan Amount</span>
-              <strong>{formatCurrency(parseFloat(amount))}</strong>
-
-              <span className="font-semibold text-green-700">Interest Rate</span>
-              <strong>{parseFloat(interest).toFixed(2)}%</strong>
-
-              <span className="text-slate-600">Loan Term</span>
-              <strong>{years} years</strong>
-
-              <span className="text-slate-600">Payment Frequency</span>
-              <strong>{frequencyLabel}</strong>
-
-              <span className="font-semibold text-green-700">{paymentLabel}</span>
-              <strong>{formatCurrency(paymentAmount)}</strong>
-
-              <span className="font-semibold text-blue-700">Total Interest</span>
-              <strong>{formatCurrency(totalInterest)}</strong>
-
-              <span className="font-semibold text-orange-700">
-                Total Repayment
-              </span>
-              <strong>{formatCurrency(totalPayment)}</strong>
-            </div>
-          </div>
+          <CalculatorSummary
+  title="Loan Summary"
+  items={[
+    {
+      label: "Loan Amount",
+      value: formatCurrency(parseFloat(amount)),
+      color: "text-slate-900",
+    },
+    {
+      label: "Interest Rate",
+      value: `${parseFloat(interest).toFixed(2)}%`,
+      color: "text-green-700",
+    },
+    {
+      label: "Loan Term",
+      value: `${years} years`,
+    },
+    {
+      label: "Payment Frequency",
+      value: frequencyLabel,
+    },
+    {
+      label: paymentLabel,
+      value: formatCurrency(paymentAmount),
+      color: "text-green-700",
+    },
+    {
+      label: "Total Interest",
+      value: formatCurrency(totalInterest),
+      color: "text-blue-700",
+    },
+    {
+      label: "Total Repayment",
+      value: formatCurrency(totalPayment),
+      color: "text-orange-700",
+    },
+  ]}
+/>
 
           <div className="mt-8 rounded-2xl border border-green-100 bg-white p-6">
             <h3 className="text-xl font-bold text-slate-900">
