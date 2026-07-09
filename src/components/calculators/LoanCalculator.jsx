@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ResultCard from "../common/ResultCard";
 import CalculatorShell from "../common/CalculatorShell";
+import CalculatorHeader from "../common/CalculatorHeader";
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JM", {
@@ -114,8 +115,12 @@ function LoanCalculator() {
 
   return (
   <CalculatorShell title="Loan Calculator">
+    <CalculatorHeader
+      title="💳 Loan Repayment Calculator"
+      subtitle="Estimate your repayments before applying for a loan."
+    />
 
-      <div className="grid gap-6 md:grid-cols-2">
+    <div className="grid gap-6 md:grid-cols-2">
         <div>
           <label className="mb-2 block font-semibold">Loan Amount</label>
           <input

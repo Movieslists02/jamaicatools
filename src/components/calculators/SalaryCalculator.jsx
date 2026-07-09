@@ -3,6 +3,7 @@ import { formatCurrency } from "../../utils/formatCurrency";
 import { copyResults as copyToClipboard } from "../../utils/copyResults";
 import ResultCard from "../common/ResultCard";
 import CalculatorShell from "../common/CalculatorShell";
+import CalculatorHeader from "../common/CalculatorHeader";
 
 function SalaryCalculator() {
   const [grossSalary, setGrossSalary] = useState("");
@@ -114,14 +115,10 @@ setResult({
   return (
   <CalculatorShell title="Jamaica Salary Calculator">
 
-      <div className="mb-8 rounded-xl border border-green-200 bg-green-50 p-4">
-        <p className="font-semibold text-green-700">
-          🇯🇲 Jamaica Payroll Calculator
-        </p>
-        <p className="mt-1 text-sm text-slate-600">
-          Based on the current 2026 Jamaican payroll tax rules.
-        </p>
-      </div>
+      <CalculatorHeader
+  title="🇯🇲 Jamaica Payroll Calculator"
+  subtitle="Based on the current 2026 Jamaican payroll tax rules."
+/>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
