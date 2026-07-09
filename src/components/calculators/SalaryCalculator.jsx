@@ -2,6 +2,7 @@ import { useState } from "react";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { copyResults as copyToClipboard } from "../../utils/copyResults";
 import ResultCard from "../common/ResultCard";
+import CalculatorShell from "../common/CalculatorShell";
 
 function SalaryCalculator() {
   const [grossSalary, setGrossSalary] = useState("");
@@ -111,8 +112,7 @@ setResult({
   };
 
   return (
-    <div className="w-full max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
-      <h2 className="mb-8 text-2xl font-bold">Jamaica Salary Calculator</h2>
+  <CalculatorShell title="Jamaica Salary Calculator">
 
       <div className="mb-8 rounded-xl border border-green-200 bg-green-50 p-4">
         <p className="font-semibold text-green-700">
@@ -325,7 +325,7 @@ setResult({
         Payroll deductions may vary based on official tax updates, pension,
         benefits, exemptions, and employer payroll settings.
       </div>
-    </div>
+    </CalculatorShell>
   );
 }
 

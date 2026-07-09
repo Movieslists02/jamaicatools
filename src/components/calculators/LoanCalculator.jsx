@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ResultCard from "../common/ResultCard";
+import CalculatorShell from "../common/CalculatorShell";
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JM", {
@@ -112,8 +113,7 @@ function LoanCalculator() {
   const frequencyLabel = frequency.charAt(0).toUpperCase() + frequency.slice(1);
 
   return (
-    <div className="w-full max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
-      <h2 className="mb-8 text-2xl font-bold">Loan Calculator</h2>
+  <CalculatorShell title="Loan Calculator">
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
@@ -288,7 +288,7 @@ function LoanCalculator() {
         Actual loan repayments may vary depending on lender fees, insurance,
         taxes, and lending policies.
       </div>
-    </div>
+    </CalculatorShell>
   );
 }
 
