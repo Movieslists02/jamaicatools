@@ -8,11 +8,12 @@ function CalculatorActions({
   copyLabel = "📋 Copy Results",
   copiedLabel = "✅ Copied!",
   isCopied = false,
+  calculateType = "button",
 }) {
   return (
     <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
       <button
-        type="button"
+        type={calculateType}
         onClick={onCalculate}
         className="h-14 flex-1 rounded-xl bg-green-700 px-8 font-semibold text-white transition hover:bg-green-800"
       >
