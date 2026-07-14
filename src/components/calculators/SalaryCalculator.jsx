@@ -8,6 +8,7 @@ import CalculatorSummary from "../common/CalculatorSummary";
 import CalculatorActions from "../common/CalculatorActions";
 import ToolDisclaimer from "../common/ToolDisclaimer";
 import CalculatorSection from "../common/CalculatorSection";
+import InlineMessage from "../common/InlineMessage";
 
 
 function SalaryCalculator() {
@@ -181,11 +182,7 @@ setResult({
 />
 
     
-      {error && (
-        <div className="mt-6 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-          {error}
-        </div>
-      )}
+      {error && <InlineMessage type="error">{error}</InlineMessage>}
 
       {result && (
         <>
@@ -212,27 +209,12 @@ setResult({
   />
 </div>
 
-          {message && (
-  <div
-    className="
-      mt-6
-      flex
-      items-center
-      gap-3
-      rounded-xl
-      border
-      border-green-200
-      bg-green-50
-      p-4
-      text-green-700
-      font-medium
-      animate-fade-in
-    "
-  >
-    <span className="text-xl">✅</span>
-    <span>{message}</span>
-  </div>
+        {message && (
+  <InlineMessage type="success">
+    {message}
+  </InlineMessage>
 )}
+  
 
           <CalculatorSummary
   title="Payroll Summary"

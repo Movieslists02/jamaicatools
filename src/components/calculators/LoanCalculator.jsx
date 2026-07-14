@@ -6,6 +6,7 @@ import CalculatorSummary from "../common/CalculatorSummary";
 import CalculatorActions from "../common/CalculatorActions";
 import ToolDisclaimer from "../common/ToolDisclaimer";
 import CalculatorSection from "../common/CalculatorSection";
+import InlineMessage from "../common/InlineMessage";
 
 
 const formatCurrency = (value) =>
@@ -201,11 +202,7 @@ function LoanCalculator() {
   calculateLabel="Calculate Loan Payment"
 />
 
-      {error && (
-        <div className="mt-6 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm font-medium text-red-700">
-          {error}
-        </div>
-      )}
+     {error && <InlineMessage type="error">{error}</InlineMessage>}
 
       {paymentAmount && (
         <>
