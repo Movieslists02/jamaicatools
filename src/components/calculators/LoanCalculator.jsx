@@ -5,6 +5,7 @@ import CalculatorHeader from "../common/CalculatorHeader";
 import CalculatorSummary from "../common/CalculatorSummary";
 import CalculatorActions from "../common/CalculatorActions";
 import ToolDisclaimer from "../common/ToolDisclaimer";
+import CalculatorSection from "../common/CalculatorSection";
 
 
 const formatCurrency = (value) =>
@@ -269,26 +270,28 @@ function LoanCalculator() {
     },
   ]}
 />
+<CalculatorSection title="First Payment Preview" tone="green">
+  <div className="divide-y divide-slate-200 text-sm">
+    {[
+      ["Payment Amount", paymentAmount],
+      ["Estimated Interest", firstInterest],
+      ["Estimated Principal", firstPrincipal],
+      ["Remaining Balance", firstBalance],
+    ].map(([label, value]) => (
+      <div
+        key={label}
+        className="flex items-center justify-between gap-4 py-3"
+      >
+        <span className="text-slate-600">{label}</span>
 
-          <div className="mt-8 rounded-2xl border border-green-100 bg-white p-6">
-            <h3 className="text-xl font-bold text-slate-900">
-              First Payment Preview
-            </h3>
-
-            <div className="mt-5 grid grid-cols-2 gap-y-3 text-sm">
-              <span className="text-slate-600">Payment Amount</span>
-              <strong>{formatCurrency(paymentAmount)}</strong>
-
-              <span className="text-slate-600">Estimated Interest</span>
-              <strong>{formatCurrency(firstInterest)}</strong>
-
-              <span className="text-slate-600">Estimated Principal</span>
-              <strong>{formatCurrency(firstPrincipal)}</strong>
-
-              <span className="text-slate-600">Remaining Balance</span>
-              <strong>{formatCurrency(firstBalance)}</strong>
-            </div>
-          </div>
+        <strong className="min-w-0 break-words text-right text-slate-900">
+          {formatCurrency(value)}
+        </strong>
+      </div>
+    ))}
+  </div>
+</CalculatorSection>
+            
         </>
       )}
 
