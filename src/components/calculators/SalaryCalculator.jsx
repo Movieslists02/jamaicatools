@@ -7,6 +7,7 @@ import CalculatorHeader from "../common/CalculatorHeader";
 import CalculatorSummary from "../common/CalculatorSummary";
 import CalculatorActions from "../common/CalculatorActions";
 import ToolDisclaimer from "../common/ToolDisclaimer";
+import CalculatorSection from "../common/CalculatorSection";
 
 
 function SalaryCalculator() {
@@ -278,31 +279,31 @@ setResult({
   Calculated {new Date().toLocaleString()}
 </p>
 
-          <div className="mt-8 rounded-2xl border border-green-100 bg-white p-6">
-            <h3 className="text-xl font-bold text-slate-900">
-              Estimated Payslip
-            </h3>
+          <CalculatorSection title="Estimated Payslip" tone="green">
+  <div className="divide-y divide-slate-200">
+    {[
+      ["Gross Pay", result.gross],
+      ["PAYE", result.paye],
+      ["NIS", result.nis],
+      ["NHT", result.nht],
+      ["Education Tax", result.educationTax],
+    ].map(([label, value]) => (
+      <div key={label} className="flex justify-between gap-4 py-2">
+        <span>{label}</span>
+        <strong className="text-right">
+          {formatCurrency(value)}
+        </strong>
+      </div>
+    ))}
 
-            <div className="mt-5 divide-y divide-slate-200">
-              {[
-                ["Gross Pay", result.gross],
-                ["PAYE", result.paye],
-                ["NIS", result.nis],
-                ["NHT", result.nht],
-                ["Education Tax", result.educationTax],
-              ].map(([label, value]) => (
-                <div key={label} className="flex justify-between py-2">
-                  <span>{label}</span>
-                  <strong>{formatCurrency(value)}</strong>
-                </div>
-              ))}
-
-              <div className="flex justify-between py-2 font-bold text-green-700">
-                <span>Take Home Pay</span>
-                <span>{formatCurrency(result.netPay)}</span>
-              </div>
-            </div>
-          </div>
+    <div className="flex justify-between gap-4 py-2 font-bold text-green-700">
+      <span>Take Home Pay</span>
+      <span className="text-right">
+        {formatCurrency(result.netPay)}
+      </span>
+    </div>
+  </div>
+</CalculatorSection>
 
           <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-5">
             <h3 className="font-bold text-blue-800">💡 Did You Know?</h3>
