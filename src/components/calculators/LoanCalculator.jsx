@@ -138,7 +138,7 @@ function LoanCalculator() {
           <input
             type="number"
             min="1"
-            step="1000"
+            step="1"
             value={amount}
             onChange={(e) => {
               setAmount(e.target.value);

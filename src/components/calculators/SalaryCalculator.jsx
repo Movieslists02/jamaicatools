@@ -138,7 +138,7 @@ setResult({
           <input
   type="number"
   min="1"
-  step="1000"
+  step="1"
   value={grossSalary}
   onChange={(e) => {
     setGrossSalary(e.target.value);
