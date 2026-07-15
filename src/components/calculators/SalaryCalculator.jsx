@@ -127,6 +127,7 @@ setResult({
 />
 
       <form
+  noValidate
   onSubmit={(e) => {
     e.preventDefault();
     calculateSalary();
