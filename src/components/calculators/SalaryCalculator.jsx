@@ -126,7 +126,13 @@ setResult({
   subtitle="Based on the current 2026 Jamaican payroll tax rules."
 />
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <form
+  onSubmit={(e) => {
+    e.preventDefault();
+    calculateSalary();
+  }}
+>
+  <div className="grid gap-6 md:grid-cols-2">
         <div>
           <label className="mb-2 block font-semibold">Gross Salary</label>
           <input
@@ -139,11 +145,7 @@ setResult({
     clearResults();
   }}
   
-  onKeyDown={(e) => {
-    if (e.key === "Enter") {
-      calculateSalary();
-    }
-  }}
+  
   placeholder="Example: 150000"
   className="h-14 w-full rounded-xl border px-4"
 />
@@ -173,13 +175,14 @@ setResult({
         </div>
       </div>
 <CalculatorActions
-  onCalculate={calculateSalary}
   onReset={resetCalculator}
   onCopy={handleCopyResults}
   disableCopy={!result}
   calculateLabel="Calculate Take-Home Pay"
+  calculateType="submit"
   isCopied={Boolean(message)}
 />
+</form>
 
     
       {error && <InlineMessage type="error">{error}</InlineMessage>}
