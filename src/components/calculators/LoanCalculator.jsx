@@ -126,7 +126,13 @@ function LoanCalculator() {
       subtitle="Estimate your repayments before applying for a loan."
     />
 
-    <div className="grid gap-6 md:grid-cols-2">
+    <form
+  onSubmit={(e) => {
+    e.preventDefault();
+    calculateLoan();
+  }}
+>
+  <div className="grid gap-6 md:grid-cols-2">
         <div>
           <label className="mb-2 block font-semibold">Loan Amount</label>
           <input
@@ -197,10 +203,12 @@ function LoanCalculator() {
       </div>
 
       <CalculatorActions
-  onCalculate={calculateLoan}
-  onReset={resetCalculator}
-  calculateLabel="Calculate Loan Payment"
-/>
+        onCalculate={calculateLoan}
+        onReset={resetCalculator}
+        calculateLabel="Calculate"
+        calculateType="submit"
+      />
+      </form>
 
      {error && <InlineMessage type="error">{error}</InlineMessage>}
 
