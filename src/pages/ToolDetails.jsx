@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import tools from "../data/tools";
 import LoanCalculator from "../components/calculators/LoanCalculator";
 import SalaryCalculator from "../components/calculators/SalaryCalculator";
+import IncomeTaxCalculator from "../components/calculators/IncomeTaxCalculator";
 
 function ToolDetails() {
   const { slug } = useParams();
@@ -55,10 +56,10 @@ function ToolDetails() {
               </p>
 
               <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-
-{tool.slug === "loan-calculator" && <LoanCalculator />}
-{tool.slug === "salary-calculator" && <SalaryCalculator />}
-              </div>
+  {tool.slug === "loan-calculator" && <LoanCalculator />}
+  {tool.slug === "salary-calculator" && <SalaryCalculator />}
+  {tool.slug === "income-tax-calculator" && <IncomeTaxCalculator />}
+</div>
             </div>
 
             <aside className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">

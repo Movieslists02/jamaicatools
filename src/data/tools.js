@@ -46,8 +46,36 @@ const tools = [
   relatedTools: ["loan-calculator", "mortgage-calculator"],
 },
 
+{
+  id: 3,
+  slug: "income-tax-calculator",
+  title: "Income Tax Calculator",
+  category: "Finance",
+  description:
+    "Estimate Jamaican income tax, taxable income, effective tax rate and after-tax income.",
+  icon: "🧾",
+  featured: true,
+  popular: true,
+  new: true,
+  keywords: [
+    "income tax",
+    "jamaica",
+    "paye",
+    "tax calculator",
+    "taxable income",
+  ],
+  seoTitle: "Jamaica Income Tax Calculator | JamaicaTools",
+  seoDescription:
+    "Estimate Jamaican income tax, taxable income, effective tax rate and after-tax income.",
+  relatedTools: [
+    "salary-calculator",
+    "loan-calculator",
+    "nis-calculator",
+  ],
+},
+
   {
-    id: 3,
+    id: 4,
     slug: "bmi-calculator",
     title: "BMI Calculator",
     category: "Health",
