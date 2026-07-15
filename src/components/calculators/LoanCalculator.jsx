@@ -54,17 +54,17 @@ function LoanCalculator() {
     const termYears = parseFloat(years);
 
     if (
-      isNaN(principal) ||
-      isNaN(annualRate) ||
-      isNaN(termYears) ||
-      principal <= 0 ||
-      annualRate <= 0 ||
-      termYears <= 0
-    ) {
-      setError("Please enter a valid loan amount, interest rate, and loan term.");
-      clearResults();
-      return;
-    }
+  isNaN(principal) ||
+  isNaN(annualRate) ||
+  isNaN(termYears) ||
+  principal <= 0 ||
+  annualRate <= 0 ||
+  termYears <= 0
+) {
+  clearResults();
+  setError("Please enter a valid loan amount, interest rate, and loan term.");
+  return;
+}
 
     const monthlyRate = annualRate / 100 / 12;
     const monthlyPayments = termYears * 12;
@@ -127,6 +127,7 @@ function LoanCalculator() {
     />
 
     <form
+  noValidate
   onSubmit={(e) => {
     e.preventDefault();
     calculateLoan();
@@ -203,11 +204,10 @@ function LoanCalculator() {
       </div>
 
       <CalculatorActions
-        onCalculate={calculateLoan}
-        onReset={resetCalculator}
-        calculateLabel="Calculate"
-        calculateType="submit"
-      />
+  onReset={resetCalculator}
+  calculateLabel="Calculate Loan Payment"
+  calculateType="submit"
+/>
       </form>
 
      {error && <InlineMessage type="error">{error}</InlineMessage>}
