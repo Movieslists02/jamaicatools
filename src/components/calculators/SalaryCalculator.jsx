@@ -80,7 +80,7 @@ if (salary > 100000000) {
     const annualThreshold = 1876614;
     const annualNisCap = 5000000;
 
-    const nisAnnual = Math.min(annualSalary, annualNisCap) * 0.03;
+    const nisAnnual = Math.min(annualSalary, annualNisCap) * 0.025;
     const nhtAnnual = annualSalary * 0.02;
     const educationTaxAnnual = (annualSalary - nisAnnual) * 0.0225;
 
