@@ -1,0 +1,15 @@
+export const JAMAICA_PAYROLL_YEAR = 2026;
+
+export const ANNUAL_TAX_FREE_THRESHOLD = 1876614;
+export const UPPER_TAX_BRACKET_START = 6000000;
+
+export const STANDARD_INCOME_TAX_RATE = 0.25;
+export const UPPER_INCOME_TAX_RATE = 0.3;
+
+export const NIS_EMPLOYEE_RATE = 0.03;
+export const NIS_EMPLOYER_RATE = 0.03;
+export const NIS_SELF_EMPLOYED_RATE = 0.06;
+export const NIS_ANNUAL_WAGE_CEILING = 5000000;
+
+export const NHT_EMPLOYEE_RATE = 0.02;
+export const EDUCATION_TAX_EMPLOYEE_RATE = 0.0225;

@@ -8,11 +8,13 @@ import CalculatorSummary from "../common/CalculatorSummary";
 import InlineMessage from "../common/InlineMessage";
 import ResultCard from "../common/ResultCard";
 import ToolDisclaimer from "../common/ToolDisclaimer";
+import {
+  NIS_ANNUAL_WAGE_CEILING,
+  NIS_EMPLOYEE_RATE,
+  NIS_EMPLOYER_RATE,
+  NIS_SELF_EMPLOYED_RATE,
+} from "../../constants/jamaicaPayroll";
 
-const EMPLOYEE_RATE = 0.03;
-const EMPLOYER_RATE = 0.03;
-const SELF_EMPLOYED_RATE = 0.06;
-const ANNUAL_INSURABLE_WAGE_CEILING = 5000000;
 
 function NISCalculator() {
   const [income, setIncome] = useState("");
@@ -59,22 +61,22 @@ function NISCalculator() {
 
     const insurableEarnings = Math.min(
       annualIncome,
-      ANNUAL_INSURABLE_WAGE_CEILING,
+      NIS_ANNUAL_WAGE_CEILING,
     );
 
     const employeeContribution =
       contributorType === "employee"
-        ? insurableEarnings * EMPLOYEE_RATE
+        ? insurableEarnings * NIS_EMPLOYEE_RATE
         : 0;
 
     const employerContribution =
       contributorType === "employee"
-        ? insurableEarnings * EMPLOYER_RATE
+        ? insurableEarnings * NIS_EMPLOYER_RATE
         : 0;
 
     const selfEmployedContribution =
       contributorType === "self-employed"
-        ? insurableEarnings * SELF_EMPLOYED_RATE
+        ? insurableEarnings * NIS_SELF_EMPLOYED_RATE
         : 0;
 
     const totalContribution =
@@ -99,7 +101,7 @@ function NISCalculator() {
       totalContribution,
       personalContribution,
       incomeAfterPersonalNIS,
-      ceilingReached: annualIncome > ANNUAL_INSURABLE_WAGE_CEILING,
+      ceilingReached: annualIncome > NIS_ANNUAL_WAGE_CEILING,
     });
   };
 
@@ -242,7 +244,7 @@ function NISCalculator() {
               },
               {
                 label: "Annual Wage Ceiling",
-                value: formatCurrency(ANNUAL_INSURABLE_WAGE_CEILING),
+                value: formatCurrency(NIS_ANNUAL_WAGE_CEILING),
               },
               {
                 label: "Insurable Earnings",
