@@ -4,6 +4,8 @@ import tools from "../data/tools";
 import LoanCalculator from "../components/calculators/LoanCalculator";
 import SalaryCalculator from "../components/calculators/SalaryCalculator";
 import IncomeTaxCalculator from "../components/calculators/IncomeTaxCalculator";
+import CurrencyConverter from "../components/calculators/CurrencyConverter";
+import NISCalculator from "../components/calculators/NISCalculator";
 
 function ToolDetails() {
   const { slug } = useParams();
@@ -59,6 +61,8 @@ function ToolDetails() {
   {tool.slug === "loan-calculator" && <LoanCalculator />}
   {tool.slug === "salary-calculator" && <SalaryCalculator />}
   {tool.slug === "income-tax-calculator" && <IncomeTaxCalculator />}
+  {tool.slug === "currency-converter" && <CurrencyConverter />}
+  {tool.slug === "nis-calculator" && <NISCalculator />}
 </div>
             </div>
 

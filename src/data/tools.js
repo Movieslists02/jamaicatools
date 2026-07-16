@@ -68,14 +68,75 @@ const tools = [
   seoDescription:
     "Estimate Jamaican income tax, taxable income, effective tax rate and after-tax income.",
   relatedTools: [
-    "salary-calculator",
+  "salary-calculator",
+  "loan-calculator",
+  "currency-converter",
+],
+},
+
+{
+  id: 4,
+  slug: "currency-converter",
+  title: "Currency Converter",
+  category: "Finance",
+  description:
+    "Convert Jamaican Dollars, US Dollars and other major currencies.",
+  icon: "💱",
+  featured: true,
+  popular: true,
+  new: true,
+  keywords: [
+  "currency",
+  "currency converter",
+  "exchange rate",
+  "usd",
+  "jmd",
+  "cad",
+  "eur",
+  "gbp",
+  "jamaica",
+],
+  seoTitle:
+"Jamaica Currency Converter | USD, JMD, CAD, GBP & EUR",
+  seoDescription:
+"Convert Jamaican Dollars (JMD), US Dollars (USD), Canadian Dollars (CAD), Euros (EUR), British Pounds (GBP) and more with live exchange calculations.",
+  relatedTools: [
     "loan-calculator",
-    "nis-calculator",
+    "salary-calculator",
+    "income-tax-calculator"
+  ]
+},
+
+{
+  id: 5,
+  slug: "nis-calculator",
+  title: "NIS Calculator",
+  category: "Finance",
+  description:
+    "Estimate Jamaica National Insurance Scheme contributions for employees, employers and self-employed contributors.",
+  icon: "🛡️",
+  featured: true,
+  popular: true,
+  new: true,
+  keywords: [
+    "nis",
+    "jamaica",
+    "national insurance",
+    "salary",
+    "payroll",
+  ],
+  seoTitle: "Jamaica NIS Calculator | JamaicaTools",
+  seoDescription:
+    "Estimate employee, employer and self-employed NIS contributions in Jamaica.",
+  relatedTools: [
+    "salary-calculator",
+    "income-tax-calculator",
+    "currency-converter",
   ],
 },
 
   {
-    id: 4,
+    id: 6,
     slug: "bmi-calculator",
     title: "BMI Calculator",
     category: "Health",
