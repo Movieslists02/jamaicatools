@@ -8,11 +8,12 @@ import CalculatorSummary from "../common/CalculatorSummary";
 import InlineMessage from "../common/InlineMessage";
 import ResultCard from "../common/ResultCard";
 import ToolDisclaimer from "../common/ToolDisclaimer";
-
-const ANNUAL_TAX_FREE_THRESHOLD = 1876614;
-const UPPER_TAX_BRACKET_START = 6000000;
-const STANDARD_TAX_RATE = 0.25;
-const UPPER_TAX_RATE = 0.3;
+import {
+  ANNUAL_TAX_FREE_THRESHOLD,
+  UPPER_TAX_BRACKET_START,
+  STANDARD_INCOME_TAX_RATE,
+  UPPER_INCOME_TAX_RATE,
+} from "../../constants/jamaicaPayroll";
 
 function IncomeTaxCalculator() {
   const [income, setIncome] = useState("");
@@ -55,16 +56,15 @@ function IncomeTaxCalculator() {
             ? enteredIncome * 52
             : enteredIncome;
 
-    const taxableIncome = Math.max(
-      annualIncome - ANNUAL_TAX_FREE_THRESHOLD,
-      0,
-    );
+    const taxableIncome = Math.max(annualIncome - ANNUAL_TAX_FREE_THRESHOLD, 0);
 
     const incomeTaxAt25Percent =
-      Math.min(taxableIncome, UPPER_TAX_BRACKET_START) * STANDARD_TAX_RATE;
+      Math.min(taxableIncome, UPPER_TAX_BRACKET_START) *
+      STANDARD_INCOME_TAX_RATE;
 
     const incomeTaxAt30Percent =
-      Math.max(taxableIncome - UPPER_TAX_BRACKET_START, 0) * UPPER_TAX_RATE;
+      Math.max(taxableIncome - UPPER_TAX_BRACKET_START, 0) *
+      UPPER_INCOME_TAX_RATE;
 
     const totalIncomeTax = incomeTaxAt25Percent + incomeTaxAt30Percent;
     const afterTaxIncome = annualIncome - totalIncomeTax;
@@ -76,8 +76,8 @@ function IncomeTaxCalculator() {
       taxableIncome <= 0
         ? 0
         : taxableIncome <= UPPER_TAX_BRACKET_START
-          ? 25
-          : 30;
+          ? STANDARD_INCOME_TAX_RATE * 100
+          : UPPER_INCOME_TAX_RATE * 100;
 
     setError("");
     setResult({
@@ -243,10 +243,7 @@ function IncomeTaxCalculator() {
                 <span>Tax-free portion</span>
                 <strong className="text-right">
                   {formatCurrency(
-                    Math.min(
-                      result.annualIncome,
-                      ANNUAL_TAX_FREE_THRESHOLD,
-                    ),
+                    Math.min(result.annualIncome, ANNUAL_TAX_FREE_THRESHOLD),
                   )}
                 </strong>
               </div>
@@ -255,10 +252,7 @@ function IncomeTaxCalculator() {
                 <span>Income taxed at 25%</span>
                 <strong className="text-right">
                   {formatCurrency(
-                    Math.min(
-                      result.taxableIncome,
-                      UPPER_TAX_BRACKET_START,
-                    ),
+                    Math.min(result.taxableIncome, UPPER_TAX_BRACKET_START),
                   )}
                 </strong>
               </div>
@@ -267,10 +261,7 @@ function IncomeTaxCalculator() {
                 <span>Income taxed at 30%</span>
                 <strong className="text-right">
                   {formatCurrency(
-                    Math.max(
-                      result.taxableIncome - UPPER_TAX_BRACKET_START,
-                      0,
-                    ),
+                    Math.max(result.taxableIncome - UPPER_TAX_BRACKET_START, 0),
                   )}
                 </strong>
               </div>
@@ -288,8 +279,8 @@ function IncomeTaxCalculator() {
       )}
 
       <ToolDisclaimer>
-        This calculator estimates income tax only. It does not include NIS,
-        NHT, Education Tax, pension deductions, exemptions, tax credits or
+        This calculator estimates income tax only. It does not include NIS, NHT,
+        Education Tax, pension deductions, exemptions, tax credits or
         employer-specific payroll adjustments.
       </ToolDisclaimer>
     </CalculatorShell>
