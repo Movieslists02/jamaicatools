@@ -12,6 +12,7 @@ import { calculateNIS } from "../../utils/payrollCalculator";
 import {
   NIS_ANNUAL_WAGE_CEILING,
   NIS_EMPLOYEE_RATE,
+  NIS_EMPLOYER_RATE,
   NIS_SELF_EMPLOYED_RATE,
 } from "../../constants/jamaicaPayroll";
 
@@ -213,18 +214,18 @@ function NISCalculator() {
               ...(contributorType === "employee"
                 ? [
                     {
-  label: "Employee Rate",
-  value: `${(NIS_EMPLOYEE_RATE * 100).toFixed(2)}%`,
-},
+                      label: "Employee Rate",
+                      value: `${(NIS_EMPLOYEE_RATE * 100).toFixed(2)}%`,
+                    },
                     {
                       label: "Employee Contribution",
                       value: formatCurrency(result.employeeContribution),
                       color: "text-blue-700",
                     },
                     {
-  label: "Employer Rate",
-  value: `${(NIS_EMPLOYEE_RATE * 100).toFixed(2)}%`,
-},
+                      label: "Employer Rate",
+                      value: `${(NIS_EMPLOYER_RATE * 100).toFixed(2)}%`,
+                    },
                     {
                       label: "Employer Contribution",
                       value: formatCurrency(result.employerContribution),
@@ -233,9 +234,9 @@ function NISCalculator() {
                   ]
                 : [
                     {
-  label: "Self-Employed Rate",
-  value: `${(NIS_SELF_EMPLOYED_RATE * 100).toFixed(2)}%`,
-},
+                      label: "Self-Employed Rate",
+                      value: `${(NIS_SELF_EMPLOYED_RATE * 100).toFixed(2)}%`,
+                    },
                     {
                       label: "Self-Employed Contribution",
                       value: formatCurrency(result.selfEmployedContribution),

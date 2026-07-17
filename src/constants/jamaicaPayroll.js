@@ -13,3 +13,5 @@ export const NIS_ANNUAL_WAGE_CEILING = 5000000;
 
 export const NHT_EMPLOYEE_RATE = 0.02;
 export const EDUCATION_TAX_EMPLOYEE_RATE = 0.0225;
+
+export const NHT_RATE = 0.02;
