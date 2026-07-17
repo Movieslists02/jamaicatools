@@ -8,13 +8,12 @@ import CalculatorSummary from "../common/CalculatorSummary";
 import InlineMessage from "../common/InlineMessage";
 import ResultCard from "../common/ResultCard";
 import ToolDisclaimer from "../common/ToolDisclaimer";
+import { calculateNIS } from "../../utils/payrollCalculator";
 import {
   NIS_ANNUAL_WAGE_CEILING,
   NIS_EMPLOYEE_RATE,
-  NIS_EMPLOYER_RATE,
   NIS_SELF_EMPLOYED_RATE,
 } from "../../constants/jamaicaPayroll";
-
 
 function NISCalculator() {
   const [income, setIncome] = useState("");
@@ -35,7 +34,7 @@ function NISCalculator() {
     clearResults();
   };
 
-  const calculateNIS = () => {
+  const handleCalculateNIS = () => {
     const enteredIncome = Number.parseFloat(income);
 
     if (!Number.isFinite(enteredIncome) || enteredIncome <= 0) {
@@ -59,50 +58,10 @@ function NISCalculator() {
             ? enteredIncome * 12
             : enteredIncome;
 
-    const insurableEarnings = Math.min(
-      annualIncome,
-      NIS_ANNUAL_WAGE_CEILING,
-    );
-
-    const employeeContribution =
-      contributorType === "employee"
-        ? insurableEarnings * NIS_EMPLOYEE_RATE
-        : 0;
-
-    const employerContribution =
-      contributorType === "employee"
-        ? insurableEarnings * NIS_EMPLOYER_RATE
-        : 0;
-
-    const selfEmployedContribution =
-      contributorType === "self-employed"
-        ? insurableEarnings * NIS_SELF_EMPLOYED_RATE
-        : 0;
-
-    const totalContribution =
-      contributorType === "employee"
-        ? employeeContribution + employerContribution
-        : selfEmployedContribution;
-
-    const personalContribution =
-      contributorType === "employee"
-        ? employeeContribution
-        : selfEmployedContribution;
-
-    const incomeAfterPersonalNIS = annualIncome - personalContribution;
+    const nisResult = calculateNIS(annualIncome, contributorType);
 
     setError("");
-    setResult({
-      annualIncome,
-      insurableEarnings,
-      employeeContribution,
-      employerContribution,
-      selfEmployedContribution,
-      totalContribution,
-      personalContribution,
-      incomeAfterPersonalNIS,
-      ceilingReached: annualIncome > NIS_ANNUAL_WAGE_CEILING,
-    });
+    setResult(nisResult);
   };
 
   return (
@@ -116,7 +75,7 @@ function NISCalculator() {
         noValidate
         onSubmit={(event) => {
           event.preventDefault();
-          calculateNIS();
+          handleCalculateNIS();
         }}
       >
         <div className="grid gap-6 md:grid-cols-2">
@@ -254,18 +213,18 @@ function NISCalculator() {
               ...(contributorType === "employee"
                 ? [
                     {
-                      label: "Employee Rate",
-                      value: "3.00%",
-                    },
+  label: "Employee Rate",
+  value: `${(NIS_EMPLOYEE_RATE * 100).toFixed(2)}%`,
+},
                     {
                       label: "Employee Contribution",
                       value: formatCurrency(result.employeeContribution),
                       color: "text-blue-700",
                     },
                     {
-                      label: "Employer Rate",
-                      value: "3.00%",
-                    },
+  label: "Employer Rate",
+  value: `${(NIS_EMPLOYEE_RATE * 100).toFixed(2)}%`,
+},
                     {
                       label: "Employer Contribution",
                       value: formatCurrency(result.employerContribution),
@@ -274,14 +233,12 @@ function NISCalculator() {
                   ]
                 : [
                     {
-                      label: "Self-Employed Rate",
-                      value: "6.00%",
-                    },
+  label: "Self-Employed Rate",
+  value: `${(NIS_SELF_EMPLOYED_RATE * 100).toFixed(2)}%`,
+},
                     {
                       label: "Self-Employed Contribution",
-                      value: formatCurrency(
-                        result.selfEmployedContribution,
-                      ),
+                      value: formatCurrency(result.selfEmployedContribution),
                       color: "text-blue-700",
                     },
                   ]),
@@ -300,16 +257,16 @@ function NISCalculator() {
 
           {result.ceilingReached && (
             <InlineMessage type="info">
-              Your annual income exceeds the J$5,000,000 insurable wage
-              ceiling. Contributions were calculated using the ceiling.
+              Your annual income exceeds the J$5,000,000 insurable wage ceiling.
+              Contributions were calculated using the ceiling.
             </InlineMessage>
           )}
 
           <CalculatorSection title="💡 Did You Know?" tone="blue">
             <p className="text-sm leading-6 text-slate-700">
               NIS provides social-security benefits including retirement,
-              invalidity, employment-injury and survivor benefits. Employees
-              and employers contribute equal portions, while self-employed
+              invalidity, employment-injury and survivor benefits. Employees and
+              employers contribute equal portions, while self-employed
               contributors pay the full contribution.
             </p>
           </CalculatorSection>
@@ -317,13 +274,13 @@ function NISCalculator() {
       )}
 
       <ToolDisclaimer>
-        This calculator provides an estimate based on a 6% combined NIS rate
-        and a J$5,000,000 annual insurable wage ceiling. Confirm current rates
-        and individual contribution requirements with the Ministry of Labour
-        and Social Security or Tax Administration Jamaica.
+        This calculator provides an estimate based on a 6% combined NIS rate and
+        a J$5,000,000 annual insurable wage ceiling. Confirm current rates and
+        individual contribution requirements with the Ministry of Labour and
+        Social Security or Tax Administration Jamaica.
       </ToolDisclaimer>
     </CalculatorShell>
   );
-} 
+}
 
 export default NISCalculator;

@@ -3,12 +3,16 @@ import {
   UPPER_TAX_BRACKET_START,
   STANDARD_INCOME_TAX_RATE,
   UPPER_INCOME_TAX_RATE,
+  NIS_ANNUAL_WAGE_CEILING,
+  NIS_EMPLOYEE_RATE,
+  NIS_EMPLOYER_RATE,
+  NIS_SELF_EMPLOYED_RATE,
 } from "../constants/jamaicaPayroll";
 
 export function calculateIncomeTax(annualIncome) {
   const taxableIncome = Math.max(
     annualIncome - ANNUAL_TAX_FREE_THRESHOLD,
-    0
+    0,
   );
 
   const incomeTaxAt25Percent =
@@ -52,7 +56,7 @@ export function calculateIncomeTax(annualIncome) {
 export function calculateNIS(annualIncome, employeeType = "employee") {
   const insurableEarnings = Math.min(
     annualIncome,
-    NIS_ANNUAL_WAGE_CEILING
+    NIS_ANNUAL_WAGE_CEILING,
   );
 
   const employeeContribution =
@@ -67,14 +71,24 @@ export function calculateNIS(annualIncome, employeeType = "employee") {
 
   const selfEmployedContribution =
     employeeType === "self-employed"
-      ? insurableEarnings *
-        (NIS_EMPLOYEE_RATE + NIS_EMPLOYER_RATE)
+      ? insurableEarnings * NIS_SELF_EMPLOYED_RATE
       : 0;
 
   const totalContribution =
     employeeType === "employee"
       ? employeeContribution + employerContribution
       : selfEmployedContribution;
+
+  const personalContribution =
+    employeeType === "employee"
+      ? employeeContribution
+      : selfEmployedContribution;
+
+  const incomeAfterPersonalNIS =
+    annualIncome - personalContribution;
+
+  const ceilingReached =
+    annualIncome > NIS_ANNUAL_WAGE_CEILING;
 
   return {
     annualIncome,
@@ -83,7 +97,8 @@ export function calculateNIS(annualIncome, employeeType = "employee") {
     employerContribution,
     selfEmployedContribution,
     totalContribution,
-    netAfterEmployeeContribution:
-      annualIncome - employeeContribution,
+    personalContribution,
+    incomeAfterPersonalNIS,
+    ceilingReached,
   };
 }
