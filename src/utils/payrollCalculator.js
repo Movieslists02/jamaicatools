@@ -48,3 +48,42 @@ export function calculateIncomeTax(annualIncome) {
     marginalTaxRate,
   };
 }
+
+export function calculateNIS(annualIncome, employeeType = "employee") {
+  const insurableEarnings = Math.min(
+    annualIncome,
+    NIS_ANNUAL_WAGE_CEILING
+  );
+
+  const employeeContribution =
+    employeeType === "employee"
+      ? insurableEarnings * NIS_EMPLOYEE_RATE
+      : 0;
+
+  const employerContribution =
+    employeeType === "employee"
+      ? insurableEarnings * NIS_EMPLOYER_RATE
+      : 0;
+
+  const selfEmployedContribution =
+    employeeType === "self-employed"
+      ? insurableEarnings *
+        (NIS_EMPLOYEE_RATE + NIS_EMPLOYER_RATE)
+      : 0;
+
+  const totalContribution =
+    employeeType === "employee"
+      ? employeeContribution + employerContribution
+      : selfEmployedContribution;
+
+  return {
+    annualIncome,
+    insurableEarnings,
+    employeeContribution,
+    employerContribution,
+    selfEmployedContribution,
+    totalContribution,
+    netAfterEmployeeContribution:
+      annualIncome - employeeContribution,
+  };
+}
