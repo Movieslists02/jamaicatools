@@ -7,7 +7,7 @@ import {
   NIS_EMPLOYEE_RATE,
   NIS_EMPLOYER_RATE,
   NIS_SELF_EMPLOYED_RATE,
-  NHT_RATE,
+  NHT_EMPLOYEE_RATE,
 } from "../constants/jamaicaPayroll";
 
 export function calculateIncomeTax(annualIncome) {
@@ -89,7 +89,7 @@ export function calculateNIS(annualIncome, employeeType = "employee") {
 
 // Add calculateNHT below calculateNIS
 export function calculateNHT(annualIncome) {
-  const annualContribution = annualIncome * NHT_RATE;
+  const annualContribution = annualIncome * NHT_EMPLOYEE_RATE;
 
   const monthlyContribution = annualContribution / 12;
 
@@ -97,6 +97,6 @@ export function calculateNHT(annualIncome) {
     annualIncome,
     annualContribution,
     monthlyContribution,
-    rate: NHT_RATE,
+    rate: NHT_EMPLOYEE_RATE,
   };
 }
