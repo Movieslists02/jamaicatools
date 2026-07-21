@@ -9,6 +9,7 @@ import {
   NIS_SELF_EMPLOYED_RATE,
   NHT_EMPLOYEE_RATE,
 } from "../constants/jamaicaPayroll";
+import { EDUCATION_TAX_EMPLOYEE_RATE } from "../constants/jamaicaPayroll";
 
 export function calculateIncomeTax(annualIncome) {
   const taxableIncome = Math.max(annualIncome - ANNUAL_TAX_FREE_THRESHOLD, 0);
@@ -98,5 +99,19 @@ export function calculateNHT(annualIncome) {
     annualContribution,
     monthlyContribution,
     rate: NHT_EMPLOYEE_RATE,
+  };
+}
+
+export function calculateEducationTax(annualIncome, annualNisContribution) {
+  const annualContribution =
+    (annualIncome - annualNisContribution) * EDUCATION_TAX_EMPLOYEE_RATE;
+
+  const monthlyContribution = annualContribution / 12;
+
+  return {
+    annualIncome,
+    annualContribution,
+    monthlyContribution,
+    rate: EDUCATION_TAX_EMPLOYEE_RATE,
   };
 }
