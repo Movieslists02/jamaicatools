@@ -5,6 +5,7 @@ import IncomeTaxCalculator from "../components/calculators/IncomeTaxCalculator";
 import LoanCalculator from "../components/calculators/LoanCalculator";
 import NISCalculator from "../components/calculators/NISCalculator";
 import SalaryCalculator from "../components/calculators/SalaryCalculator";
+import BMICalculator from "../components/calculators/BMICalculator";
 import tools from "../data/tools";
 
 const toolComponents = {
@@ -13,6 +14,7 @@ const toolComponents = {
   "income-tax-calculator": IncomeTaxCalculator,
   "currency-converter": CurrencyConverter,
   "nis-calculator": NISCalculator,
+  "bmi-calculator": BMICalculator,
 };
 
 function ToolDetails() {
