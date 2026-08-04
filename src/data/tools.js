@@ -532,6 +532,35 @@ seoDescription:
       "compress-pdf",
     ],
   },
+
+  {
+  id: 20,
+  slug: "word-to-pdf",
+  title: "Word to PDF",
+  category: "PDF Tools",
+  description:
+    "Convert Microsoft Word documents into downloadable PDF files.",
+  icon: "📘",
+  featured: true,
+  popular: true,
+  new: true,
+  keywords: [
+    "word to pdf",
+    "docx to pdf",
+    "doc to pdf",
+    "convert word to pdf",
+    "microsoft word pdf",
+    "word document converter",
+  ],
+  seoTitle: "Convert Word to PDF Online | JamaicaTools",
+  seoDescription:
+    "Convert DOC and DOCX documents into PDF files online with JamaicaTools.",
+  relatedTools: [
+    "pdf-to-word",
+    "merge-pdf",
+    "compress-pdf",
+  ],
+},
 ];
 
 export default tools;
