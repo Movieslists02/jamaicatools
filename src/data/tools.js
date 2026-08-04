@@ -445,6 +445,35 @@ seoDescription:
       "pdf-to-images",
     ],
   },
+
+  {
+    id: 17,
+    slug: "pdf-to-images",
+    title: "PDF to Images",
+    category: "PDF Tools",
+    description:
+      "Convert PDF pages into downloadable image files.",
+    icon: "🖼️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "pdf to images",
+      "pdf to jpg",
+      "pdf to png",
+      "convert pdf pages",
+      "extract pdf pages as images",
+      "pdf image converter",
+    ],
+    seoTitle: "Convert PDF to Images Online | JamaicaTools",
+    seoDescription:
+      "Convert PDF pages into downloadable JPG or PNG images online with JamaicaTools.",
+    relatedTools: [
+      "images-to-pdf",
+      "split-pdf",
+      "compress-pdf",
+    ],
+  },
 ];
 
 export default tools;

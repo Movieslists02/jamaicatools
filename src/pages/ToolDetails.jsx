@@ -17,6 +17,7 @@ import ImageWatermarker from "../components/tools/images/ImageWatermarker";
 import MergePDF from "../components/tools/pdf/MergePDF";
 import SplitPDF from "../components/tools/pdf/SplitPDF";
 import CompressPDF from "../components/tools/pdf/CompressPDF";
+import PDFToImages from "../components/tools/pdf/PDFToImages";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -35,6 +36,7 @@ const toolComponents = {
   "merge-pdf": MergePDF,
   "split-pdf": SplitPDF,
   "compress-pdf": CompressPDF,
+  "pdf-to-images": PDFToImages,
 };
 
 function ToolDetails() {
