@@ -561,6 +561,36 @@ seoDescription:
     "compress-pdf",
   ],
 },
+
+{
+  id: 21,
+  slug: "protect-pdf",
+  title: "Protect PDF",
+  category: "PDF Tools",
+  description:
+    "Add password protection to PDF documents.",
+  icon: "🔒",
+  featured: true,
+  popular: true,
+  new: true,
+  keywords: [
+    "protect pdf",
+    "password pdf",
+    "encrypt pdf",
+    "secure pdf",
+    "pdf password",
+    "lock pdf",
+  ],
+  seoTitle: "Protect PDF Online | JamaicaTools",
+  seoDescription:
+    "Add password protection to PDF files online with JamaicaTools.",
+  relatedTools: [
+    "unlock-pdf",
+    "compress-pdf",
+    "merge-pdf",
+  ],
+},
+
 ];
 
 export default tools;
