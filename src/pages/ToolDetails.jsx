@@ -11,6 +11,7 @@ import BackgroundRemover from "../components/tools/images/BackgroundRemover";
 import ImageCompressor from "../components/tools/images/ImageCompressor";
 import ImageConverter from "../components/tools/images/ImageConverter";
 import ImageResizer from "../components/tools/images/ImageResizer";
+import ImageCropper from "../components/tools/images/ImageCropper";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -23,6 +24,7 @@ const toolComponents = {
   "image-compressor": ImageCompressor,
   "image-converter": ImageConverter,
   "image-resizer": ImageResizer,
+  "crop-image": ImageCropper,
 };
 
 function ToolDetails() {

@@ -271,6 +271,35 @@ seoDescription:
       "background-remover",
     ],
   },
+
+  {
+    id: 11,
+    slug: "crop-image",
+    title: "Crop Image",
+    category: "Image Tools",
+    description:
+      "Crop PNG, JPG and WEBP images to the exact dimensions you need.",
+    icon: "✂️",
+    featured: false,
+    popular: false,
+    new: true,
+    keywords: [
+      "crop image",
+      "image cropper",
+      "crop png",
+      "crop jpg",
+      "crop webp",
+      "photo crop",
+    ],
+    seoTitle: "Free Image Cropper | JamaicaTools",
+    seoDescription:
+      "Crop PNG, JPG and WEBP images online with precision.",
+    relatedTools: [
+      "image-resizer",
+      "image-compressor",
+      "background-remover",
+    ],
+  },
 ];
 
 export default tools;
