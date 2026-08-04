@@ -30,6 +30,7 @@ import DeletePDFPages from "../components/tools/pdf/DeletePDFPages";
 import OCRPDF from "../components/tools/pdf/OCRPDF";
 import RepairPDF from "../components/tools/pdf/RepairPDF";
 import SignPDF from "../components/tools/pdf/SignPDF";
+import PDFPageNumbers from "../components/tools/pdf/PDFPageNumbers";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -61,6 +62,7 @@ const toolComponents = {
   "ocr-pdf": OCRPDF,
   "repair-pdf": RepairPDF,
   "sign-pdf": SignPDF,
+  "pdf-page-numbers": PDFPageNumbers,
 };
 
 function ToolDetails() {

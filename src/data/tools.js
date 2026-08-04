@@ -823,6 +823,35 @@ seoDescription:
       "compress-pdf",
     ],
   },
+
+  {
+    id: 30,
+    slug: "pdf-page-numbers",
+    title: "PDF Page Numbers",
+    category: "PDF Tools",
+    description:
+      "Add page numbers to PDF documents.",
+    icon: "🔢",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "pdf page numbers",
+      "add page numbers to pdf",
+      "number pdf pages",
+      "pdf pagination",
+      "insert page numbers",
+      "document page numbering",
+    ],
+    seoTitle: "Add Page Numbers to PDF Online | JamaicaTools",
+    seoDescription:
+      "Add page numbers to PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "organize-pdf",
+      "rotate-pdf",
+      "sign-pdf",
+    ],
+  },
 ];
 
 export default tools;
