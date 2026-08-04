@@ -649,6 +649,35 @@ seoDescription:
       "merge-pdf",
     ],
   },
+
+  {
+    id: 24,
+    slug: "organize-pdf",
+    title: "Organize PDF",
+    category: "PDF Tools",
+    description:
+      "Reorder, remove and arrange PDF pages into the sequence you need.",
+    icon: "🗂️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "organize pdf",
+      "reorder pdf pages",
+      "arrange pdf pages",
+      "manage pdf pages",
+      "pdf page organizer",
+      "sort pdf pages",
+    ],
+    seoTitle: "Organize PDF Pages Online | JamaicaTools",
+    seoDescription:
+      "Reorder, remove and arrange PDF pages online with JamaicaTools.",
+    relatedTools: [
+      "rotate-pdf",
+      "split-pdf",
+      "merge-pdf",
+    ],
+  },
 ];
 
 export default tools;

@@ -24,6 +24,7 @@ import WordToPDF from "../components/tools/pdf/WordToPDF";
 import ProtectPDF from "../components/tools/pdf/ProtectPDF";
 import UnlockPDF from "../components/tools/pdf/UnlockPDF";
 import RotatePDF from "../components/tools/pdf/RotatePDF";
+import OrganizePDF from "../components/tools/pdf/OrganizePDF";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -49,6 +50,7 @@ const toolComponents = {
   "protect-pdf": ProtectPDF,
   "unlock-pdf": UnlockPDF,
   "rotate-pdf": RotatePDF,
+  "organize-pdf": OrganizePDF,
 };
 
 function ToolDetails() {
