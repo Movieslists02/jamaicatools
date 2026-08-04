@@ -4,13 +4,23 @@ import CalculatorHeader from "../../common/CalculatorHeader";
 import CalculatorShell from "../../common/CalculatorShell";
 import InlineMessage from "../../common/InlineMessage";
 
-const ACCEPTED_FILE_TYPES = [
+const DEFAULT_ACCEPTED_TYPES = [
   "image/png",
   "image/jpeg",
   "image/webp",
 ];
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const FILE_TYPE_LABELS = {
+  "image/png": "PNG",
+  "image/jpeg": "JPG or JPEG",
+  "image/webp": "WEBP",
+};
+
+const FILE_TYPE_EXTENSIONS = {
+  "image/png": [".png"],
+  "image/jpeg": [".jpg", ".jpeg"],
+  "image/webp": [".webp"],
+};
 
 function formatFileSize(bytes) {
   if (bytes < 1024) {
@@ -24,11 +34,43 @@ function formatFileSize(bytes) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+function formatAcceptedTypes(acceptedTypes) {
+  const labels = acceptedTypes.map(
+    (type) => FILE_TYPE_LABELS[type] || type,
+  );
+
+  if (labels.length === 1) {
+    return labels[0];
+  }
+
+  if (labels.length === 2) {
+    return labels.join(" or ");
+  }
+
+  return `${labels.slice(0, -1).join(", ")} or ${labels.at(-1)}`;
+}
+
+function buildAcceptAttribute(acceptedTypes) {
+  const values = acceptedTypes.flatMap((type) => [
+    ...(FILE_TYPE_EXTENSIONS[type] || []),
+    type,
+  ]);
+
+  return values.join(",");
+}
+
 function ImageWorkspace({
   title = "Image Workspace",
   headerTitle = "🖼️ Upload Your Image",
   headerSubtitle = "Choose an image to begin processing.",
   actionLabel = "Process Image",
+  uploadTitle = "Drag and drop your image here",
+  uploadDescription,
+  browseLabel = "Browse Image",
+  previewTitle = "Image Preview",
+  detailsTitle = "File Information",
+  acceptedTypes = DEFAULT_ACCEPTED_TYPES,
+  maxFileSize = 10 * 1024 * 1024,
   onProcess,
 }) {
   const inputRef = useRef(null);
@@ -36,6 +78,14 @@ function ImageWorkspace({
   const [previewUrl, setPreviewUrl] = useState("");
   const [error, setError] = useState("");
   const [isDragging, setIsDragging] = useState(false);
+
+  const acceptedTypesLabel = formatAcceptedTypes(acceptedTypes);
+  const maximumFileSizeLabel = formatFileSize(maxFileSize);
+  const acceptedFiles = buildAcceptAttribute(acceptedTypes);
+
+  const resolvedUploadDescription =
+    uploadDescription ||
+    `Upload a ${acceptedTypesLabel} image up to ${maximumFileSizeLabel}.`;
 
   useEffect(() => {
     return () => {
@@ -49,6 +99,7 @@ function ImageWorkspace({
     setSelectedFile(null);
     setPreviewUrl("");
     setError("");
+    setIsDragging(false);
 
     if (inputRef.current) {
       inputRef.current.value = "";
@@ -62,13 +113,15 @@ function ImageWorkspace({
       return;
     }
 
-    if (!ACCEPTED_FILE_TYPES.includes(file.type)) {
-      setError("Please select a PNG, JPG, JPEG or WEBP image.");
+    if (!acceptedTypes.includes(file.type)) {
+      setError(`Please select a ${acceptedTypesLabel} image.`);
       return;
     }
 
-    if (file.size > MAX_FILE_SIZE) {
-      setError("Please select an image smaller than 10 MB.");
+    if (file.size > maxFileSize) {
+      setError(
+        `Please select an image smaller than ${maximumFileSizeLabel}.`,
+      );
       return;
     }
 
@@ -130,7 +183,7 @@ function ImageWorkspace({
             ref={inputRef}
             id="image-workspace-file"
             type="file"
-            accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"
+            accept={acceptedFiles}
             onChange={(event) => handleFile(event.target.files[0])}
             className="sr-only"
           />
@@ -143,11 +196,11 @@ function ImageWorkspace({
           </div>
 
           <h3 className="mt-5 text-xl font-bold text-slate-900">
-            Drag and drop your image here
+            {uploadTitle}
           </h3>
 
           <p className="mt-2 text-sm leading-6 text-slate-600">
-            Upload a PNG, JPG, JPEG or WEBP image up to 10 MB.
+            {resolvedUploadDescription}
           </p>
 
           <button
@@ -155,7 +208,7 @@ function ImageWorkspace({
             onClick={() => inputRef.current?.click()}
             className="mt-6 h-12 rounded-xl bg-green-700 px-6 font-semibold text-white transition hover:bg-green-800"
           >
-            Browse Image
+            {browseLabel}
           </button>
         </div>
 
@@ -166,7 +219,7 @@ function ImageWorkspace({
             <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
               <div>
                 <h3 className="text-xl font-bold text-slate-900">
-                  Image Preview
+                  {previewTitle}
                 </h3>
 
                 <div className="mt-4 flex min-h-64 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50 p-4">
@@ -180,7 +233,7 @@ function ImageWorkspace({
 
               <div>
                 <h3 className="text-xl font-bold text-slate-900">
-                  File Information
+                  {detailsTitle}
                 </h3>
 
                 <dl className="mt-4 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-slate-50 px-4">
