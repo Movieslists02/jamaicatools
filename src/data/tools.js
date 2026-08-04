@@ -707,6 +707,35 @@ seoDescription:
       "merge-pdf",
     ],
   },
+
+  {
+    id: 26,
+    slug: "delete-pdf-pages",
+    title: "Delete PDF Pages",
+    category: "PDF Tools",
+    description:
+      "Remove unwanted pages from a PDF document.",
+    icon: "🗑️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "delete pdf pages",
+      "remove pdf pages",
+      "erase pdf pages",
+      "pdf page remover",
+      "delete pages from pdf",
+      "remove document pages",
+    ],
+    seoTitle: "Delete PDF Pages Online | JamaicaTools",
+    seoDescription:
+      "Remove unwanted pages from PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "extract-pdf-pages",
+      "organize-pdf",
+      "split-pdf",
+    ],
+  },
 ];
 
 export default tools;

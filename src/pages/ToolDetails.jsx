@@ -26,6 +26,7 @@ import UnlockPDF from "../components/tools/pdf/UnlockPDF";
 import RotatePDF from "../components/tools/pdf/RotatePDF";
 import OrganizePDF from "../components/tools/pdf/OrganizePDF";
 import ExtractPDFPages from "../components/tools/pdf/ExtractPDFPages";
+import DeletePDFPages from "../components/tools/pdf/DeletePDFPages";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -53,6 +54,7 @@ const toolComponents = {
   "rotate-pdf": RotatePDF,
   "organize-pdf": OrganizePDF,
   "extract-pdf-pages": ExtractPDFPages,
+  "delete-pdf-pages": DeletePDFPages,
 };
 
 function ToolDetails() {
