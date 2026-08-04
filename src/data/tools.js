@@ -474,6 +474,35 @@ seoDescription:
       "compress-pdf",
     ],
   },
+
+  {
+    id: 18,
+    slug: "images-to-pdf",
+    title: "Images to PDF",
+    category: "PDF Tools",
+    description:
+      "Combine PNG, JPG and WEBP images into one organized PDF document.",
+    icon: "📄",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "images to pdf",
+      "jpg to pdf",
+      "png to pdf",
+      "photos to pdf",
+      "image pdf converter",
+      "combine images into pdf",
+    ],
+    seoTitle: "Convert Images to PDF Online | JamaicaTools",
+    seoDescription:
+      "Combine PNG, JPG and WEBP images into one PDF document online with JamaicaTools.",
+    relatedTools: [
+      "pdf-to-images",
+      "merge-pdf",
+      "compress-pdf",
+    ],
+  },
 ];
 
 export default tools;
