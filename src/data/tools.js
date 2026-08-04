@@ -881,6 +881,35 @@ seoDescription:
       "ocr-pdf",
     ],
   },
+
+  {
+    id: 32,
+    slug: "excel-to-pdf",
+    title: "Excel to PDF",
+    category: "PDF Tools",
+    description:
+      "Convert Microsoft Excel spreadsheets into downloadable PDF documents.",
+    icon: "📗",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "excel to pdf",
+      "xlsx to pdf",
+      "xls to pdf",
+      "convert spreadsheet to pdf",
+      "microsoft excel pdf",
+      "excel document converter",
+    ],
+    seoTitle: "Convert Excel to PDF Online | JamaicaTools",
+    seoDescription:
+      "Convert XLS and XLSX spreadsheets into PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "pdf-to-excel",
+      "word-to-pdf",
+      "compress-pdf",
+    ],
+  },
 ];
 
 export default tools;
