@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-const MODEL = "gpt-5.6-luna";
+const MODEL = "gpt-5";
 
 const TASKS = {
   writer: {
@@ -179,8 +179,8 @@ export default async function handler(request) {
     });
   }
 
-  if (!process.env.OPENAI_API_KEY) {
-    console.error("OPENAI_API_KEY is not configured.");
+  if (!process.env.OPENAI_KEY) {
+    console.error("OPENAI_KEY is not configured.");
 
     return jsonResponse(503, {
       error: "The AI Studio is not configured yet.",
@@ -268,7 +268,7 @@ export default async function handler(request) {
 
   try {
     const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: process.env.OPENAI_KEY,
     });
 
     const response = await client.responses.create({
