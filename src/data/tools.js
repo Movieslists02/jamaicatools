@@ -678,6 +678,35 @@ seoDescription:
       "merge-pdf",
     ],
   },
+
+  {
+    id: 25,
+    slug: "extract-pdf-pages",
+    title: "Extract PDF Pages",
+    category: "PDF Tools",
+    description:
+      "Extract specific pages from a PDF into a new document.",
+    icon: "📑",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "extract pdf pages",
+      "save pdf pages",
+      "copy pdf pages",
+      "pdf page extractor",
+      "select pdf pages",
+      "extract pages from pdf",
+    ],
+    seoTitle: "Extract PDF Pages Online | JamaicaTools",
+    seoDescription:
+      "Select and extract specific PDF pages into a new document online with JamaicaTools.",
+    relatedTools: [
+      "split-pdf",
+      "organize-pdf",
+      "merge-pdf",
+    ],
+  },
 ];
 
 export default tools;
