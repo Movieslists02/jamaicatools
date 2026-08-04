@@ -242,6 +242,35 @@ seoDescription:
       "image-resizer",
     ],
   },
+
+  {
+    id: 10,
+    slug: "image-resizer",
+    title: "Image Resizer",
+    category: "Image Tools",
+    description:
+      "Resize PNG, JPG and WEBP images for websites, social media, documents and printing.",
+    icon: "📐",
+    featured: false,
+    popular: false,
+    new: true,
+    keywords: [
+      "image resizer",
+      "resize image",
+      "change image dimensions",
+      "resize png",
+      "resize jpg",
+      "resize webp",
+    ],
+    seoTitle: "Free Image Resizer | JamaicaTools",
+    seoDescription:
+      "Resize PNG, JPG and WEBP images online for websites, social media, documents and printing.",
+    relatedTools: [
+      "image-compressor",
+      "image-converter",
+      "background-remover",
+    ],
+  },
 ];
 
 export default tools;
