@@ -1026,6 +1026,37 @@ seoDescription:
       "pdf-to-images",
     ],
   },
+
+  {
+    id: 37,
+    slug: "ai-writer",
+    title: "AI Studio",
+    category: "AI Tools",
+    description:
+      "Write, rewrite, summarize, generate marketing content and chat with AI.",
+    icon: "✨",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "ai studio",
+      "ai writer",
+      "ai rewriter",
+      "ai summarizer",
+      "email writer",
+      "ad copy generator",
+      "product description generator",
+      "social media caption generator",
+      "youtube script generator",
+      "resume writer",
+      "cover letter generator",
+      "ai chat assistant",
+    ],
+    seoTitle: "AI Studio and Content Generator | JamaicaTools",
+    seoDescription:
+      "Write, rewrite, summarize, generate marketing content and chat with the JamaicaTools AI Studio.",
+    relatedTools: [],
+  },
 ];
 
 export default tools;
