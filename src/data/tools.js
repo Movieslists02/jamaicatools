@@ -794,6 +794,35 @@ seoDescription:
       "pdf-to-images",
     ],
   },
+
+  {
+    id: 29,
+    slug: "sign-pdf",
+    title: "Sign PDF",
+    category: "PDF Tools",
+    description:
+      "Add a signature to a PDF document.",
+    icon: "✍️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "sign pdf",
+      "add signature to pdf",
+      "pdf signature",
+      "electronic signature",
+      "sign document online",
+      "pdf signing tool",
+    ],
+    seoTitle: "Sign PDF Documents Online | JamaicaTools",
+    seoDescription:
+      "Add an electronic signature to PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "protect-pdf",
+      "organize-pdf",
+      "compress-pdf",
+    ],
+  },
 ];
 
 export default tools;
