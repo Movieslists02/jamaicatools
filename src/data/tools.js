@@ -620,6 +620,35 @@ seoDescription:
       "merge-pdf",
     ],
   },
+
+  {
+    id: 23,
+    slug: "rotate-pdf",
+    title: "Rotate PDF",
+    category: "PDF Tools",
+    description:
+      "Rotate PDF pages clockwise or counterclockwise.",
+    icon: "🔄",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "rotate pdf",
+      "rotate pdf pages",
+      "turn pdf pages",
+      "pdf page rotation",
+      "rotate document",
+      "fix pdf orientation",
+    ],
+    seoTitle: "Rotate PDF Pages Online | JamaicaTools",
+    seoDescription:
+      "Rotate PDF pages clockwise or counterclockwise online with JamaicaTools.",
+    relatedTools: [
+      "organize-pdf",
+      "split-pdf",
+      "merge-pdf",
+    ],
+  },
 ];
 
 export default tools;
