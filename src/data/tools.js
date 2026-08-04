@@ -329,6 +329,35 @@ seoDescription:
       "image-converter",
     ],
   },
+
+  {
+    id: 13,
+    slug: "watermark-image",
+    title: "Watermark Image",
+    category: "Image Tools",
+    description:
+      "Add text, branding and ownership marks to PNG, JPG and WEBP images.",
+    icon: "©️",
+    featured: false,
+    popular: false,
+    new: true,
+    keywords: [
+      "watermark image",
+      "add watermark",
+      "image watermark",
+      "photo watermark",
+      "text watermark",
+      "brand image",
+    ],
+    seoTitle: "Add Watermark to Images Online | JamaicaTools",
+    seoDescription:
+      "Add text, branding and ownership watermarks to PNG, JPG and WEBP images online.",
+    relatedTools: [
+      "image-resizer",
+      "crop-image",
+      "rotate-flip-image",
+    ],
+  },
 ];
 
 export default tools;

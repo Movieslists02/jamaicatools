@@ -13,6 +13,7 @@ import ImageConverter from "../components/tools/images/ImageConverter";
 import ImageResizer from "../components/tools/images/ImageResizer";
 import ImageCropper from "../components/tools/images/ImageCropper";
 import ImageRotator from "../components/tools/images/ImageRotator";
+import ImageWatermarker from "../components/tools/images/ImageWatermarker";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -27,6 +28,7 @@ const toolComponents = {
   "image-resizer": ImageResizer,
   "crop-image": ImageCropper,
   "rotate-flip-image": ImageRotator,
+  "watermark-image": ImageWatermarker,
 };
 
 function ToolDetails() {
