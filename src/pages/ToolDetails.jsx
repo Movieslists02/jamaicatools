@@ -34,6 +34,7 @@ import PDFPageNumbers from "../components/tools/pdf/PDFPageNumbers";
 import PDFToExcel from "../components/tools/pdf/PDFToExcel";
 import ExcelToPDF from "../components/tools/pdf/ExcelToPDF";
 import PDFToPowerPoint from "../components/tools/pdf/PDFToPowerPoint";
+import PowerPointToPDF from "../components/tools/pdf/PowerPointToPDF";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -69,6 +70,7 @@ const toolComponents = {
   "pdf-to-excel": PDFToExcel,
   "excel-to-pdf": ExcelToPDF,
   "pdf-to-powerpoint": PDFToPowerPoint,
+  "powerpoint-to-pdf": PowerPointToPDF,
 };
 
 function ToolDetails() {

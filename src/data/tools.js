@@ -939,6 +939,35 @@ seoDescription:
       "pdf-to-images",
     ],
   },
+
+  {
+    id: 34,
+    slug: "powerpoint-to-pdf",
+    title: "PowerPoint to PDF",
+    category: "PDF Tools",
+    description:
+      "Convert Microsoft PowerPoint presentations into downloadable PDF documents.",
+    icon: "📙",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "powerpoint to pdf",
+      "pptx to pdf",
+      "ppt to pdf",
+      "convert presentation to pdf",
+      "microsoft powerpoint pdf",
+      "presentation converter",
+    ],
+    seoTitle: "Convert PowerPoint to PDF Online | JamaicaTools",
+    seoDescription:
+      "Convert PPT and PPTX presentations into PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "pdf-to-powerpoint",
+      "word-to-pdf",
+      "compress-pdf",
+    ],
+  },
 ];
 
 export default tools;
