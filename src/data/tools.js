@@ -910,6 +910,35 @@ seoDescription:
       "compress-pdf",
     ],
   },
+
+  {
+    id: 33,
+    slug: "pdf-to-powerpoint",
+    title: "PDF to PowerPoint",
+    category: "PDF Tools",
+    description:
+      "Convert PDF pages into an editable Microsoft PowerPoint presentation.",
+    icon: "📽️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "pdf to powerpoint",
+      "pdf to pptx",
+      "convert pdf to slides",
+      "pdf presentation converter",
+      "pdf to microsoft powerpoint",
+      "editable powerpoint",
+    ],
+    seoTitle: "Convert PDF to PowerPoint Online | JamaicaTools",
+    seoDescription:
+      "Convert PDF pages into editable PowerPoint presentations online with JamaicaTools.",
+    relatedTools: [
+      "powerpoint-to-pdf",
+      "pdf-to-word",
+      "pdf-to-images",
+    ],
+  },
 ];
 
 export default tools;
