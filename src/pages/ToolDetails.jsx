@@ -19,6 +19,7 @@ import SplitPDF from "../components/tools/pdf/SplitPDF";
 import CompressPDF from "../components/tools/pdf/CompressPDF";
 import PDFToImages from "../components/tools/pdf/PDFToImages";
 import ImagesToPDF from "../components/tools/pdf/ImagesToPDF";
+import PDFToWord from "../components/tools/pdf/PDFToWord";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -39,6 +40,7 @@ const toolComponents = {
   "compress-pdf": CompressPDF,
   "pdf-to-images": PDFToImages,
   "images-to-pdf": ImagesToPDF,
+  "pdf-to-word": PDFToWord,
 };
 
 function ToolDetails() {

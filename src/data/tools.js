@@ -503,6 +503,35 @@ seoDescription:
       "compress-pdf",
     ],
   },
+
+  {
+    id: 19,
+    slug: "pdf-to-word",
+    title: "PDF to Word",
+    category: "PDF Tools",
+    description:
+      "Convert PDF documents into editable Microsoft Word files.",
+    icon: "📝",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "pdf to word",
+      "pdf to docx",
+      "convert pdf to word",
+      "editable word document",
+      "pdf document converter",
+      "pdf to microsoft word",
+    ],
+    seoTitle: "Convert PDF to Word Online | JamaicaTools",
+    seoDescription:
+      "Convert PDF documents into editable Word files online with JamaicaTools.",
+    relatedTools: [
+      "word-to-pdf",
+      "pdf-to-images",
+      "compress-pdf",
+    ],
+  },
 ];
 
 export default tools;
