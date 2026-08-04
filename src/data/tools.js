@@ -765,6 +765,35 @@ seoDescription:
       "compress-pdf",
     ],
   },
+
+  {
+    id: 28,
+    slug: "repair-pdf",
+    title: "Repair PDF",
+    category: "PDF Tools",
+    description:
+      "Attempt to recover readable content from damaged or corrupted PDF files.",
+    icon: "🛠️",
+    featured: false,
+    popular: false,
+    new: true,
+    keywords: [
+      "repair pdf",
+      "fix corrupted pdf",
+      "recover pdf",
+      "damaged pdf repair",
+      "restore pdf",
+      "pdf recovery tool",
+    ],
+    seoTitle: "Repair Damaged PDF Files Online | JamaicaTools",
+    seoDescription:
+      "Attempt to repair damaged or corrupted PDF files online with JamaicaTools.",
+    relatedTools: [
+      "compress-pdf",
+      "ocr-pdf",
+      "pdf-to-images",
+    ],
+  },
 ];
 
 export default tools;
