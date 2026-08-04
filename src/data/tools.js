@@ -387,6 +387,35 @@ seoDescription:
       "images-to-pdf",
     ],
   },
+
+  {
+    id: 15,
+    slug: "split-pdf",
+    title: "Split PDF",
+    category: "PDF Tools",
+    description:
+      "Separate a PDF into individual pages or selected page ranges.",
+    icon: "✂️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "split pdf",
+      "separate pdf pages",
+      "extract pdf pages",
+      "pdf splitter",
+      "divide pdf",
+      "split document",
+    ],
+    seoTitle: "Free PDF Splitter | JamaicaTools",
+    seoDescription:
+      "Split PDF files into individual pages or selected page ranges online with JamaicaTools.",
+    relatedTools: [
+      "merge-pdf",
+      "compress-pdf",
+      "pdf-to-images",
+    ],
+  },
 ];
 
 export default tools;

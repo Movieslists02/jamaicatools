@@ -15,6 +15,7 @@ import ImageCropper from "../components/tools/images/ImageCropper";
 import ImageRotator from "../components/tools/images/ImageRotator";
 import ImageWatermarker from "../components/tools/images/ImageWatermarker";
 import MergePDF from "../components/tools/pdf/MergePDF";
+import SplitPDF from "../components/tools/pdf/SplitPDF";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -31,6 +32,7 @@ const toolComponents = {
   "rotate-flip-image": ImageRotator,
   "watermark-image": ImageWatermarker,
   "merge-pdf": MergePDF,
+  "split-pdf": SplitPDF,
 };
 
 function ToolDetails() {
