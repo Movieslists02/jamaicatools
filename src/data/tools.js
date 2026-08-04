@@ -997,6 +997,35 @@ seoDescription:
       "pdf-page-numbers",
     ],
   },
+
+  {
+    id: 36,
+    slug: "pdf-to-text",
+    title: "PDF to Text",
+    category: "PDF Tools",
+    description:
+      "Extract readable text from PDF documents.",
+    icon: "📄",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "pdf to text",
+      "extract text from pdf",
+      "pdf text extractor",
+      "convert pdf to txt",
+      "copy text from pdf",
+      "pdf document to text",
+    ],
+    seoTitle: "Convert PDF to Text Online | JamaicaTools",
+    seoDescription:
+      "Extract readable text from PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "ocr-pdf",
+      "pdf-to-word",
+      "pdf-to-images",
+    ],
+  },
 ];
 
 export default tools;

@@ -36,6 +36,7 @@ import ExcelToPDF from "../components/tools/pdf/ExcelToPDF";
 import PDFToPowerPoint from "../components/tools/pdf/PDFToPowerPoint";
 import PowerPointToPDF from "../components/tools/pdf/PowerPointToPDF";
 import WatermarkPDF from "../components/tools/pdf/WatermarkPDF";
+import PDFToText from "../components/tools/pdf/PDFToText";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -73,6 +74,7 @@ const toolComponents = {
   "pdf-to-powerpoint": PDFToPowerPoint,
   "powerpoint-to-pdf": PowerPointToPDF,
   "watermark-pdf": WatermarkPDF,
+  "pdf-to-text": PDFToText,
 };
 
 function ToolDetails() {
