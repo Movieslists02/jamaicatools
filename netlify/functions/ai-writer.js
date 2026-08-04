@@ -267,8 +267,16 @@ export default async function handler(request) {
         });
 
   try {
+    const apiKey = process.env.OPENAI_KEY?.trim();
+
+    console.log("OpenAI environment diagnostic:", {
+      keyPresent: Boolean(apiKey),
+      keyLength: apiKey?.length ?? 0,
+      keyPrefix: apiKey ? `${apiKey.slice(0, 7)}...` : "missing",
+    });
+
     const client = new OpenAI({
-      apiKey: process.env.OPENAI_KEY,
+      apiKey,
     });
 
     const response = await client.responses.create({
