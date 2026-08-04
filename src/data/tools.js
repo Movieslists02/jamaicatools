@@ -852,6 +852,35 @@ seoDescription:
       "sign-pdf",
     ],
   },
+
+  {
+    id: 31,
+    slug: "pdf-to-excel",
+    title: "PDF to Excel",
+    category: "PDF Tools",
+    description:
+      "Convert tables and structured data from PDF documents into editable Excel spreadsheets.",
+    icon: "📊",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "pdf to excel",
+      "pdf to xlsx",
+      "convert pdf table",
+      "extract pdf data",
+      "pdf spreadsheet converter",
+      "pdf table to excel",
+    ],
+    seoTitle: "Convert PDF to Excel Online | JamaicaTools",
+    seoDescription:
+      "Convert tables and structured data from PDF files into editable Excel spreadsheets online.",
+    relatedTools: [
+      "pdf-to-word",
+      "pdf-to-images",
+      "ocr-pdf",
+    ],
+  },
 ];
 
 export default tools;
