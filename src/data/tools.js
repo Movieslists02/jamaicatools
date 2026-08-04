@@ -736,6 +736,35 @@ seoDescription:
       "split-pdf",
     ],
   },
+
+  {
+    id: 27,
+    slug: "ocr-pdf",
+    title: "OCR PDF",
+    category: "PDF Tools",
+    description:
+      "Recognize text in scanned PDF documents and make it searchable.",
+    icon: "🔍",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "ocr pdf",
+      "scanned pdf to text",
+      "searchable pdf",
+      "recognize pdf text",
+      "extract text from scanned pdf",
+      "pdf optical character recognition",
+    ],
+    seoTitle: "OCR PDF Online | JamaicaTools",
+    seoDescription:
+      "Recognize text in scanned PDF documents and create searchable files online with JamaicaTools.",
+    relatedTools: [
+      "pdf-to-word",
+      "pdf-to-images",
+      "compress-pdf",
+    ],
+  },
 ];
 
 export default tools;
