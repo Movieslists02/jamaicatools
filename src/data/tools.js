@@ -968,6 +968,35 @@ seoDescription:
       "compress-pdf",
     ],
   },
+
+  {
+    id: 35,
+    slug: "watermark-pdf",
+    title: "Watermark PDF",
+    category: "PDF Tools",
+    description:
+      "Add text, branding and ownership marks to PDF documents.",
+    icon: "©️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "watermark pdf",
+      "add watermark to pdf",
+      "pdf text watermark",
+      "brand pdf",
+      "protect document ownership",
+      "pdf watermark tool",
+    ],
+    seoTitle: "Add Watermark to PDF Online | JamaicaTools",
+    seoDescription:
+      "Add text, branding and ownership watermarks to PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "protect-pdf",
+      "sign-pdf",
+      "pdf-page-numbers",
+    ],
+  },
 ];
 
 export default tools;
