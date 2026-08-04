@@ -149,15 +149,43 @@ const tools = [
     keywords: [
       "bmi",
       "health",
-      "weight"
+      "weight",
     ],
     seoTitle: "BMI Calculator",
     seoDescription:
       "Check your Body Mass Index online.",
     relatedTools: [
-      "age-calculator"
-    ]
-  }
+      "age-calculator",
+    ],
+  },
+
+  {
+    id: 7,
+    slug: "background-remover",
+    title: "Background Remover",
+    category: "Image Tools",
+    description:
+      "Remove image backgrounds quickly and create clean transparent images.",
+    icon: "🪄",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "background remover",
+      "remove image background",
+      "transparent background",
+      "image editing",
+      "png",
+    ],
+    seoTitle: "Free Background Remover | JamaicaTools",
+    seoDescription:
+      "Remove image backgrounds online and create transparent PNG images with JamaicaTools.",
+    relatedTools: [
+      "image-compressor",
+      "image-converter",
+      "image-resizer",
+    ],
+  },
 ];
 
 export default tools;
