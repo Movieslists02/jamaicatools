@@ -186,6 +186,31 @@ const tools = [
       "image-resizer",
     ],
   },
+
+
+  {
+    id: 8,
+slug: "image-compressor",
+title: "Image Compressor",
+category: "Image Tools",
+icon: "🗜️",
+    keywords: [
+"compress image",
+"reduce image size",
+"png compressor",
+"jpg compressor",
+"webp compressor",
+    ],
+      seoTitle:
+"Free Image Compressor | JamaicaTools",
+seoDescription:
+"Compress PNG, JPG and WEBP images while maintaining excellent quality.",
+    relatedTools: [
+      "background-remover",
+      "image-converter",
+      "image-resizer",
+    ],
+  },
 ];
 
 export default tools;
