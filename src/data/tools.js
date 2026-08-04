@@ -358,6 +358,35 @@ seoDescription:
       "rotate-flip-image",
     ],
   },
+
+  {
+    id: 14,
+    slug: "merge-pdf",
+    title: "Merge PDF",
+    category: "PDF Tools",
+    description:
+      "Combine multiple PDF files into one organized document.",
+    icon: "📚",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "merge pdf",
+      "combine pdf",
+      "join pdf files",
+      "pdf merger",
+      "combine documents",
+      "merge documents",
+    ],
+    seoTitle: "Free PDF Merger | JamaicaTools",
+    seoDescription:
+      "Combine multiple PDF files into one document online with JamaicaTools.",
+    relatedTools: [
+      "split-pdf",
+      "compress-pdf",
+      "images-to-pdf",
+    ],
+  },
 ];
 
 export default tools;
