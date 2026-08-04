@@ -591,6 +591,35 @@ seoDescription:
   ],
 },
 
+
+  {
+    id: 22,
+    slug: "unlock-pdf",
+    title: "Unlock PDF",
+    category: "PDF Tools",
+    description:
+      "Remove password protection from authorized PDF documents.",
+    icon: "🔓",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "unlock pdf",
+      "remove pdf password",
+      "decrypt pdf",
+      "pdf password remover",
+      "open protected pdf",
+      "unlock document",
+    ],
+    seoTitle: "Unlock Password-Protected PDF Online | JamaicaTools",
+    seoDescription:
+      "Remove password protection from authorized PDF documents online with JamaicaTools.",
+    relatedTools: [
+      "protect-pdf",
+      "compress-pdf",
+      "merge-pdf",
+    ],
+  },
 ];
 
 export default tools;
