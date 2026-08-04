@@ -416,6 +416,35 @@ seoDescription:
       "pdf-to-images",
     ],
   },
+
+  {
+    id: 16,
+    slug: "compress-pdf",
+    title: "Compress PDF",
+    category: "PDF Tools",
+    description:
+      "Reduce PDF file size while preserving readability and document quality.",
+    icon: "🗜️",
+    featured: true,
+    popular: true,
+    new: true,
+    keywords: [
+      "compress pdf",
+      "reduce pdf size",
+      "pdf compressor",
+      "shrink pdf",
+      "optimize pdf",
+      "smaller pdf",
+    ],
+    seoTitle: "Free PDF Compressor | JamaicaTools",
+    seoDescription:
+      "Compress PDF files online and reduce document size while preserving readability.",
+    relatedTools: [
+      "merge-pdf",
+      "split-pdf",
+      "pdf-to-images",
+    ],
+  },
 ];
 
 export default tools;
