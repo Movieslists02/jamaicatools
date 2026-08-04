@@ -211,6 +211,37 @@ seoDescription:
       "image-resizer",
     ],
   },
+
+
+
+  {
+    id: 9,
+    slug: "image-converter",
+    title: "Image Converter",
+    category: "Image Tools",
+    description:
+      "Convert PNG, JPG and WEBP images into other popular image formats.",
+    icon: "🔄",
+    featured: false,
+    popular: false,
+    new: true,
+    keywords: [
+      "image converter",
+      "convert image",
+      "png to jpg",
+      "jpg to png",
+      "webp converter",
+      "image format converter",
+    ],
+    seoTitle: "Free Image Converter | JamaicaTools",
+    seoDescription:
+      "Convert PNG, JPG and WEBP images into other popular image formats online.",
+    relatedTools: [
+      "background-remover",
+      "image-compressor",
+      "image-resizer",
+    ],
+  },
 ];
 
 export default tools;

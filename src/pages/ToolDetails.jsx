@@ -9,6 +9,7 @@ import BMICalculator from "../components/calculators/BMICalculator";
 import tools from "../data/tools";
 import BackgroundRemover from "../components/tools/images/BackgroundRemover";
 import ImageCompressor from "../components/tools/images/ImageCompressor";
+import ImageConverter from "../components/tools/images/ImageConverter";
 
 const toolComponents = {
   "loan-calculator": LoanCalculator,
@@ -19,6 +20,7 @@ const toolComponents = {
   "bmi-calculator": BMICalculator,
   "background-remover": BackgroundRemover,
   "image-compressor": ImageCompressor,
+  "image-converter": ImageConverter,
 };
 
 function ToolDetails() {
