@@ -300,6 +300,35 @@ seoDescription:
       "background-remover",
     ],
   },
+
+  {
+    id: 12,
+    slug: "rotate-flip-image",
+    title: "Rotate & Flip Image",
+    category: "Image Tools",
+    description:
+      "Rotate images clockwise or counterclockwise and flip them horizontally or vertically.",
+    icon: "🔄",
+    featured: false,
+    popular: false,
+    new: true,
+    keywords: [
+      "rotate image",
+      "flip image",
+      "rotate photo",
+      "flip photo",
+      "horizontal flip",
+      "vertical flip",
+    ],
+    seoTitle: "Rotate & Flip Images Online | JamaicaTools",
+    seoDescription:
+      "Rotate and flip PNG, JPG and WEBP images online with JamaicaTools.",
+    relatedTools: [
+      "crop-image",
+      "image-resizer",
+      "image-converter",
+    ],
+  },
 ];
 
 export default tools;
