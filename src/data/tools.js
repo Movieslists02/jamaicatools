@@ -21,7 +21,6 @@ const tools = [
     seoDescription:
       "Calculate loan payments instantly with JamaicaTools.",
     relatedTools: [
-      "mortgage-calculator",
       "salary-calculator",
       "currency-converter"
     ]
@@ -43,7 +42,7 @@ const tools = [
   seoTitle: "Jamaica Salary Calculator | JamaicaTools",
   seoDescription:
     "Estimate your Jamaican salary after PAYE, NIS, NHT and Education Tax deductions.",
-  relatedTools: ["loan-calculator", "mortgage-calculator"],
+  relatedTools: ["loan-calculator", "income-tax-calculator"],
 },
 
 {
@@ -155,7 +154,8 @@ const tools = [
     seoDescription:
       "Check your Body Mass Index online.",
     relatedTools: [
-      "age-calculator",
+      "salary-calculator",
+      "income-tax-calculator",
     ],
   },
 
@@ -193,6 +193,8 @@ const tools = [
 slug: "image-compressor",
 title: "Image Compressor",
 category: "Image Tools",
+description:
+  "Compress PNG, JPG and WEBP images to reduce file size while maintaining useful visual quality.",
 icon: "🗜️",
     keywords: [
 "compress image",
