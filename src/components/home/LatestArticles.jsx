@@ -1,61 +1,49 @@
 import { Link } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
+import BlogCard from "../blog/BlogCard";
 import blogPosts from "../../data/blogPosts";
 
 function LatestArticles() {
+  const latestPosts = [...blogPosts]
+    .sort(
+      (firstPost, secondPost) =>
+        new Date(secondPost.publishedAt) -
+        new Date(firstPost.publishedAt) ||
+        secondPost.id - firstPost.id,
+    )
+    .slice(0, 3);
+
   return (
     <section className="bg-slate-50 py-16">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-green-700">
-              Latest Articles
+            <p className="text-sm font-bold uppercase tracking-wider text-green-700">
+              Guides and resources
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
-              Learn something new every week
+            <h2 className="mt-2 text-3xl font-bold text-slate-900">
+              Latest articles
             </h2>
 
-            <p className="mt-4 max-w-2xl text-slate-600">
-              Helpful guides about finance, business, technology,
-              AI, productivity, and everyday life in Jamaica.
+            <p className="mt-3 max-w-2xl leading-7 text-slate-600">
+              Learn how to make better use of online tools, documents,
+              images, finance resources and artificial intelligence.
             </p>
           </div>
 
           <Link
             to="/blog"
-            className="font-semibold text-green-700 hover:text-green-800"
+            className="inline-flex items-center gap-2 font-semibold text-green-700 hover:text-green-800"
           >
-            View all articles →
+            View all articles
+            <FiArrowRight />
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {blogPosts.slice(0, 3).map((post) => (
-            <Link
-              key={post.id}
-              to={`/blog/${post.slug}`}
-              className="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <p className="text-sm font-semibold text-green-700">
-                {post.category}
-              </p>
-
-              <h3 className="mt-3 text-2xl font-bold text-slate-900">
-                {post.title}
-              </h3>
-
-              <p className="mt-4 text-slate-600">
-                {post.excerpt}
-              </p>
-
-              <div className="mt-6 flex items-center justify-between text-sm text-slate-500">
-                <span>{post.readTime}</span>
-
-                <span className="font-semibold text-green-700">
-                  Read →
-                </span>
-              </div>
-            </Link>
+        <div className="mt-9 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          {latestPosts.map((post) => (
+            <BlogCard key={post.id} post={post} />
           ))}
         </div>
       </div>
