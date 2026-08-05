@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import SEO from "../components/seo/SEO";
+import StructuredData from "../components/seo/StructuredData";
 import NotFound from "./NotFound";
 import CurrencyConverter from "../components/calculators/CurrencyConverter";
 import IncomeTaxCalculator from "../components/calculators/IncomeTaxCalculator";
@@ -90,6 +91,57 @@ function ToolDetails() {
 
   const ToolComponent = toolComponents[tool.slug];
 
+  const toolUrl = `https://jamaicatools.com/tools/${tool.slug}`;
+
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: tool.title,
+      url: toolUrl,
+      description: tool.seoDescription || tool.description,
+      applicationCategory: tool.category,
+      operatingSystem: "Any",
+      browserRequirements: "Requires a modern web browser",
+      isAccessibleForFree: true,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "JamaicaTools",
+        url: "https://jamaicatools.com/",
+      },
+      keywords: tool.keywords?.join(", "),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://jamaicatools.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Tools",
+          item: "https://jamaicatools.com/tools",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: tool.title,
+          item: toolUrl,
+        },
+      ],
+    },
+  ];
+
   return (
     <>
       <SEO
@@ -98,6 +150,7 @@ function ToolDetails() {
         canonical={`/tools/${tool.slug}`}
         keywords={tool.keywords}
       />
+      <StructuredData data={structuredData} />
 
       <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4">
