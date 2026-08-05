@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LegalPage from "../components/legal/LegalPage";
+import SEO from "../components/seo/SEO";
 
 const EFFECTIVE_DATE = "August 4, 2026";
 
@@ -199,25 +199,11 @@ const disclaimerSections = [
 function Disclaimer() {
   return (
     <>
-      <Helmet>
-        <title>Disclaimer | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Read important limitations concerning JamaicaTools calculators, AI-generated content, health information, financial estimates, uploaded files and articles."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/disclaimer" />
-
-        <meta property="og:title" content="Disclaimer | JamaicaTools" />
-        <meta
-          property="og:description"
-          content="Important limitations for calculators, AI output, financial and health information, file processing and third-party services."
-        />
-        <meta
-          property="og:url"
-          content="https://jamaicatools.com/disclaimer"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        title="Disclaimer"
+        description="Read important limitations concerning JamaicaTools calculators, AI-generated content, health information, financial estimates, uploaded files and articles."
+        canonical="/disclaimer"
+      />
 
       <LegalPage
         eyebrow="Important Information"

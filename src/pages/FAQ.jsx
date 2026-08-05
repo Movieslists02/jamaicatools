@@ -10,6 +10,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import faqs, { faqCategories } from "../data/faqs";
+import SEO from "../components/seo/SEO";
 
 function FAQ() {
   const [query, setQuery] = useState("");
@@ -78,27 +79,19 @@ function FAQ() {
 
   return (
     <>
-      <Helmet>
-        <title>Frequently Asked Questions | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Find answers about JamaicaTools calculators, PDF tools, image utilities, AI Studio, privacy, security and support."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/faq" />
-        <meta
-          property="og:title"
-          content="Frequently Asked Questions | JamaicaTools"
-        />
-        <meta
-          property="og:description"
-          content="Answers to common questions about JamaicaTools, its online tools, AI features, privacy and support."
-        />
-        <meta
-          property="og:url"
-          content="https://jamaicatools.com/faq"
-        />
-        <meta property="og:type" content="website" />
+      <SEO
+        title="Frequently Asked Questions"
+        description="Find answers about JamaicaTools calculators, PDF tools, image utilities, AI Studio, privacy, security and support."
+        canonical="/faq"
+        keywords={[
+          "JamaicaTools FAQ",
+          "online tools help",
+          "AI Studio help",
+          "PDF tools support",
+        ]}
+      />
 
+      <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

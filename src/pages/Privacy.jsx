@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LegalPage from "../components/legal/LegalPage";
+import SEO from "../components/seo/SEO";
 
 const EFFECTIVE_DATE = "August 4, 2026";
 
@@ -200,25 +200,11 @@ const privacySections = [
 function Privacy() {
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Learn how JamaicaTools collects, uses, protects and shares information when you use calculators, file tools, AI Studio and the contact form."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/privacy" />
-
-        <meta property="og:title" content="Privacy Policy | JamaicaTools" />
-        <meta
-          property="og:description"
-          content="Information about privacy, uploaded files, AI processing, contact forms, cookies and user rights on JamaicaTools."
-        />
-        <meta
-          property="og:url"
-          content="https://jamaicatools.com/privacy"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        title="Privacy Policy"
+        description="Learn how JamaicaTools collects, uses, protects and shares information when you use calculators, file tools, AI Studio and the contact form."
+        canonical="/privacy"
+      />
 
       <LegalPage
         eyebrow="Legal and Privacy"

@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LegalPage from "../components/legal/LegalPage";
+import SEO from "../components/seo/SEO";
 
 const EFFECTIVE_DATE = "August 4, 2026";
 
@@ -237,28 +237,11 @@ const termsSections = [
 function Terms() {
   return (
     <>
-      <Helmet>
-        <title>Terms & Conditions | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Read the terms governing use of JamaicaTools calculators, AI Studio, uploaded files, online utilities, articles and related services."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/terms" />
-
-        <meta
-          property="og:title"
-          content="Terms & Conditions | JamaicaTools"
-        />
-        <meta
-          property="og:description"
-          content="Terms governing calculators, AI features, uploaded files, acceptable use, warranties and user responsibilities."
-        />
-        <meta
-          property="og:url"
-          content="https://jamaicatools.com/terms"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        title="Terms & Conditions"
+        description="Read the terms governing use of JamaicaTools calculators, AI Studio, uploaded files, online utilities, articles and related services."
+        canonical="/terms"
+      />
 
       <LegalPage
         eyebrow="Legal Information"

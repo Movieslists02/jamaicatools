@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/seo/SEO";
 import { Link } from "react-router-dom";
 import {
   FiAlertCircle,
@@ -202,14 +202,17 @@ function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact JamaicaTools | Support and Tool Suggestions</title>
-        <meta
-          name="description"
-          content="Contact JamaicaTools to suggest a tool, report a problem, ask a question or discuss a business opportunity."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/contact" />
-      </Helmet>
+      <SEO
+        title="Contact JamaicaTools | Support and Tool Suggestions"
+        description="Contact JamaicaTools to suggest a tool, report a problem, ask a question or discuss a business opportunity."
+        canonical="/contact"
+        keywords={[
+          "contact JamaicaTools",
+          "suggest a tool",
+          "report a problem",
+          "JamaicaTools support",
+        ]}
+      />
 
       <main>
         <section className="border-b border-slate-200 bg-slate-50 py-16 sm:py-20">

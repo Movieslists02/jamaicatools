@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LegalPage from "../components/legal/LegalPage";
+import SEO from "../components/seo/SEO";
 
 const EFFECTIVE_DATE = "August 5, 2026";
 
@@ -251,31 +251,11 @@ const aiPolicySections = [
 function AIUsagePolicy() {
   return (
     <>
-      <Helmet>
-        <title>AI Usage Policy | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Read the JamaicaTools AI Usage Policy covering AI accuracy, privacy, human review, prohibited uses, intellectual property and user responsibilities."
-        />
-        <link
-          rel="canonical"
-          href="https://jamaicatools.com/ai-policy"
-        />
-
-        <meta
-          property="og:title"
-          content="AI Usage Policy | JamaicaTools"
-        />
-        <meta
-          property="og:description"
-          content="Rules and responsibilities for using JamaicaTools AI Studio safely and responsibly."
-        />
-        <meta
-          property="og:url"
-          content="https://jamaicatools.com/ai-policy"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        title="AI Usage Policy"
+        description="Read the JamaicaTools AI Usage Policy covering AI accuracy, privacy, human review, prohibited uses, intellectual property and user responsibilities."
+        canonical="/ai-policy"
+      />
 
       <LegalPage
         eyebrow="Responsible Artificial Intelligence"

@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LegalPage from "../components/legal/LegalPage";
+import SEO from "../components/seo/SEO";
 
 const EFFECTIVE_DATE = "August 5, 2026";
 
@@ -188,31 +188,11 @@ const accessibilitySections = [
 function Accessibility() {
   return (
     <>
-      <Helmet>
-        <title>Accessibility Statement | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Learn about JamaicaTools accessibility goals, WCAG 2.2 efforts, keyboard support, assistive technology, known limitations and how to report a barrier."
-        />
-        <link
-          rel="canonical"
-          href="https://jamaicatools.com/accessibility"
-        />
-
-        <meta
-          property="og:title"
-          content="Accessibility Statement | JamaicaTools"
-        />
-        <meta
-          property="og:description"
-          content="JamaicaTools accessibility goals, current measures, known limitations and support for reporting barriers."
-        />
-        <meta
-          property="og:url"
-          content="https://jamaicatools.com/accessibility"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        title="Accessibility Statement"
+        description="Learn about JamaicaTools accessibility goals, WCAG 2.2 efforts, keyboard support, assistive technology, known limitations and how to report a barrier."
+        canonical="/accessibility"
+      />
 
       <LegalPage
         eyebrow="Inclusive Access"

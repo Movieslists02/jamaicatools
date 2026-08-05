@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import LegalPage from "../components/legal/LegalPage";
+import SEO from "../components/seo/SEO";
 
 const EFFECTIVE_DATE = "August 4, 2026";
 
@@ -172,25 +172,11 @@ const cookieSections = [
 function CookiePolicy() {
   return (
     <>
-      <Helmet>
-        <title>Cookie Policy | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Learn how JamaicaTools may use cookies, local storage and similar browser technologies for essential features, preferences, analytics and advertising."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/cookies" />
-
-        <meta property="og:title" content="Cookie Policy | JamaicaTools" />
-        <meta
-          property="og:description"
-          content="Information about cookies, local storage, third-party technologies and browser controls on JamaicaTools."
-        />
-        <meta
-          property="og:url"
-          content="https://jamaicatools.com/cookies"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        title="Cookie Policy"
+        description="Learn how JamaicaTools may use cookies, local storage and similar browser technologies for essential features, preferences, analytics and advertising."
+        canonical="/cookies"
+      />
 
       <LegalPage
         eyebrow="Privacy and Browser Storage"

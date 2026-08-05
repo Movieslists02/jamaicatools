@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
-import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import ToolGrid from "../components/tools/ToolGrid";
+import SEO from "../components/seo/SEO";
 import tools from "../data/tools";
 import {
   filterAndSortTools,
@@ -76,14 +76,18 @@ function Tools() {
 
   return (
     <>
-      <Helmet>
-        <title>Free Online Tools | JamaicaTools</title>
-        <meta
-          name="description"
-          content="Search and browse free calculators, image tools, PDF utilities, AI tools and online resources."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/tools" />
-      </Helmet>
+      <SEO
+        title="Free Online Tools"
+        description="Search and browse free calculators, image tools, PDF utilities, AI tools and online resources."
+        canonical="/tools"
+        keywords={[
+          "free online tools",
+          "Jamaica calculators",
+          "PDF tools",
+          "image tools",
+          "AI tools",
+        ]}
+      />
 
       <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4">

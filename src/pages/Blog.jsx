@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { FiSearch, FiX } from "react-icons/fi";
 import BlogCard from "../components/blog/BlogCard";
+import SEO from "../components/seo/SEO";
 import blogPosts, { blogCategories } from "../data/blogPosts";
 
 function Blog() {
@@ -50,24 +50,18 @@ function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>JamaicaTools Blog | Practical Guides and Resources</title>
-        <meta
-          name="description"
-          content="Read practical guides about Jamaican finance, PDF documents, image tools, AI, websites and digital productivity."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/blog" />
-        <meta
-          property="og:title"
-          content="JamaicaTools Blog | Practical Guides and Resources"
-        />
-        <meta
-          property="og:description"
-          content="Helpful guides for finance, documents, images, AI and digital productivity."
-        />
-        <meta property="og:url" content="https://jamaicatools.com/blog" />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      <SEO
+        title="JamaicaTools Blog | Practical Guides and Resources"
+        description="Read practical guides about Jamaican finance, PDF documents, image tools, AI, websites and digital productivity."
+        canonical="/blog"
+        keywords={[
+          "Jamaica guides",
+          "Caribbean finance",
+          "PDF guides",
+          "AI guides",
+          "digital productivity",
+        ]}
+      />
 
       <main>
         <section className="border-b border-slate-200 bg-slate-50 py-16 sm:py-20">

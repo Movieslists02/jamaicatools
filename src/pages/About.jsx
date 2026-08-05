@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 import {
   FiArrowRight,
   FiCheckCircle,
@@ -110,14 +110,16 @@ const roadmap = [
 function About() {
   return (
     <>
-      <Helmet>
-        <title>About JamaicaTools | Free Tools for the Caribbean</title>
-        <meta
-          name="description"
-          content="Learn why JamaicaTools was created and how we are building useful calculators, PDF tools, image utilities and AI resources for Jamaica and the Caribbean."
-        />
-        <link rel="canonical" href="https://jamaicatools.com/about" />
-      </Helmet>
+      <SEO
+        title="About JamaicaTools | Free Tools for the Caribbean"
+        description="Learn why JamaicaTools was created and how we are building useful calculators, PDF tools, image utilities and AI resources for Jamaica and the Caribbean."
+        canonical="/about"
+        keywords={[
+          "about JamaicaTools",
+          "Jamaica online tools",
+          "Caribbean digital tools",
+        ]}
+      />
 
       <main>
         <section className="border-b border-slate-200 bg-slate-50 py-16 sm:py-20">
