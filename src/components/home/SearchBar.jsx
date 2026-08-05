@@ -1,50 +1,34 @@
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import tools from "../../data/tools";
 
 const suggestions = [
-  "Loan Calculator",
-  "Salary Calculator",
-  "Income Tax Calculator",
-  "Currency Converter",
-  "NIS Calculator",
-  "BMI Calculator",
+  "PDF",
+  "Image",
+  "Salary",
+  "Tax",
+  "Currency",
+  "AI",
 ];
 
 function SearchBar() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
-  const [submittedQuery, setSubmittedQuery] = useState("");
 
-  const searchResults = useMemo(() => {
-    const normalizedQuery = submittedQuery.trim().toLowerCase();
+  const openSearchResults = (searchQuery) => {
+    const normalizedQuery = searchQuery.trim();
 
     if (!normalizedQuery) {
-      return [];
+      navigate("/tools");
+      return;
     }
 
-    return tools.filter((tool) => {
-      const searchableText = [
-        tool.title,
-        tool.category,
-        tool.description,
-        ...(tool.keywords ?? []),
-      ]
-        .join(" ")
-        .toLowerCase();
-
-      return searchableText.includes(normalizedQuery);
-    });
-  }, [submittedQuery]);
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    setSubmittedQuery(query);
+    navigate(`/tools?q=${encodeURIComponent(normalizedQuery)}`);
   };
 
-  const handleSuggestion = (suggestion) => {
-    setQuery(suggestion);
-    setSubmittedQuery(suggestion);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    openSearchResults(query);
   };
 
   return (
@@ -55,100 +39,47 @@ function SearchBar() {
         </h2>
 
         <p className="mt-3 text-slate-600">
-          Search calculators, finance tools, health tools and more.
+          Search calculators, PDF utilities, image tools, AI resources and
+          more.
         </p>
 
         <form
-          onSubmit={handleSearch}
-          className="mt-8 flex overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-lg"
+          onSubmit={handleSubmit}
+          className="mt-8 flex flex-col overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-lg sm:flex-row"
         >
-          <div className="flex items-center pl-5">
+          <div className="hidden items-center pl-5 sm:flex">
             <FiSearch className="text-2xl text-slate-400" />
           </div>
 
           <input
             type="search"
             value={query}
-            onChange={(event) => {
-              setQuery(event.target.value);
-
-              if (!event.target.value.trim()) {
-                setSubmittedQuery("");
-              }
-            }}
-            placeholder="Search loan calculator, salary, tax..."
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search PDF, image, salary, AI..."
             aria-label="Search tools"
-            className="w-full px-4 py-5 text-lg outline-none"
+            className="min-h-14 w-full px-5 py-4 text-lg outline-none"
           />
 
           <button
             type="submit"
-            className="bg-green-700 px-8 font-semibold text-white hover:bg-green-800"
+            className="min-h-14 bg-green-700 px-8 font-semibold text-white transition hover:bg-green-800"
           >
-            Search
+            Search Tools
           </button>
         </form>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          {suggestions.map((item) => (
+          {suggestions.map((suggestion) => (
             <button
-              key={item}
+              key={suggestion}
               type="button"
-              onClick={() => handleSuggestion(item)}
-              className="rounded-full border border-slate-300 px-4 py-2 text-sm hover:border-green-700 hover:text-green-700"
+              onClick={() => openSearchResults(suggestion)}
+              className="rounded-full border border-slate-300 px-4 py-2 text-sm transition hover:border-green-700 hover:text-green-700"
             >
-              {item}
+              {suggestion}
             </button>
           ))}
         </div>
-
-        {submittedQuery && (
-          <div className="mt-10 text-left">
-            <h3 className="text-xl font-bold text-slate-900">Search Results</h3>
-
-            {searchResults.length > 0 ? (
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                {searchResults.map((tool) => (
-                  <Link
-                    key={tool.id}
-                    to={`/tools/${tool.slug}`}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:border-green-300 hover:bg-white hover:shadow-md"
-                  >
-                    <div className="flex items-start gap-4">
-                      <span className="text-3xl" aria-hidden="true">
-                        {tool.icon}
-                      </span>
-
-                      <div>
-                        <p className="text-sm font-semibold text-green-700">
-                          {tool.category}
-                        </p>
-
-                        <h4 className="mt-1 text-lg font-bold text-slate-900">
-                          {tool.title}
-                        </h4>
-
-                        <p className="mt-2 text-sm leading-6 text-slate-600">
-                          {tool.description}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
-                <p className="font-semibold text-slate-900">
-                  No matching tools found.
-                </p>
-
-                <p className="mt-2 text-sm text-slate-600">
-                  Try searching for salary, tax, loan, currency, NIS or BMI.
-                </p>
-              </div>
-            )}
-          </div>
-        )}
       </div>
     </section>
   );
