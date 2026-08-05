@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import ToolGrid from "../components/tools/ToolGrid";
@@ -24,11 +24,18 @@ const SORT_OPTIONS = [
 
 function Tools() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const searchInputRef = useRef(null);
 
   const query = searchParams.get("q") ?? "";
   const category = searchParams.get("category") ?? "all";
   const status = searchParams.get("status") ?? "all";
   const sort = searchParams.get("sort") ?? "relevance";
+
+  useEffect(() => {
+    if (query.trim()) {
+      searchInputRef.current?.focus();
+    }
+  }, [query]);
 
   const categories = useMemo(() => getToolCategories(tools), []);
 
@@ -75,6 +82,7 @@ function Tools() {
           name="description"
           content="Search and browse free calculators, image tools, PDF utilities, AI tools and online resources."
         />
+        <link rel="canonical" href="https://jamaicatools.com/tools" />
       </Helmet>
 
       <section className="bg-slate-50 py-16">
@@ -104,6 +112,7 @@ function Tools() {
               </label>
 
               <input
+                ref={searchInputRef}
                 id="tool-search"
                 type="search"
                 value={query}
@@ -111,6 +120,7 @@ function Tools() {
                   updateSearchParameter("q", event.target.value)
                 }
                 placeholder="Search PDF, salary, image, AI, tax..."
+                autoComplete="off"
                 className="h-14 w-full rounded-2xl border border-slate-300 bg-white px-5 text-lg outline-none transition focus:border-green-600 focus:ring-4 focus:ring-green-100"
               />
             </div>
