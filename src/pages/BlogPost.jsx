@@ -8,6 +8,7 @@ import {
   FiTool,
 } from "react-icons/fi";
 import RelatedPosts from "../components/blog/RelatedPosts";
+import SEO from "../components/seo/SEO";
 import tools from "../data/tools";
 import {
   getBlogPostBySlug,
@@ -60,25 +61,19 @@ function BlogPost() {
 
   return (
     <>
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        canonical={`/blog/${post.slug}`}
+        type="article"
+        publishedTime={post.publishedAt}
+        modifiedTime={post.updatedAt}
+        author={post.author}
+        section={post.category}
+        keywords={post.keywords}
+      />
+
       <Helmet>
-        <title>{post.title} | JamaicaTools</title>
-        <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={articleUrl} />
-
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={articleUrl} />
-        <meta property="og:type" content="article" />
-        <meta
-          property="article:published_time"
-          content={post.publishedAt}
-        />
-        <meta
-          property="article:modified_time"
-          content={post.updatedAt}
-        />
-        <meta property="article:section" content={post.category} />
-
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

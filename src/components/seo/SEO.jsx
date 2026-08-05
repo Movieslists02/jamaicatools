@@ -37,22 +37,39 @@ function createImageUrl(image) {
   return `${SITE_URL}${normalizePath(image)}`;
 }
 
+function createFullTitle(title) {
+  if (!title) {
+    return `${SITE_NAME} | Free Online Tools for the Caribbean`;
+  }
+
+  const normalizedTitle = title.trim();
+
+  if (
+    normalizedTitle.toLowerCase().endsWith(
+      `| ${SITE_NAME}`.toLowerCase(),
+    )
+  ) {
+    return normalizedTitle;
+  }
+
+  return `${normalizedTitle} | ${SITE_NAME}`;
+}
+
 function SEO({
   title,
   description = DEFAULT_DESCRIPTION,
   canonical = "/",
   image = "",
+  imageAlt = "",
   type = "website",
   noIndex = false,
   publishedTime = "",
   modifiedTime = "",
   author = "",
+  section = "",
   keywords = [],
 }) {
-  const fullTitle = title
-    ? `${title} | ${SITE_NAME}`
-    : `${SITE_NAME} | Free Online Tools for the Caribbean`;
-
+  const fullTitle = createFullTitle(title);
   const canonicalUrl = createCanonicalUrl(canonical);
   const imageUrl = createImageUrl(image);
 
@@ -94,7 +111,10 @@ function SEO({
       {imageUrl && (
         <meta
           property="og:image:alt"
-          content={`${title || SITE_NAME} social preview`}
+          content={
+            imageAlt ||
+            `${title || SITE_NAME} social preview`
+          }
         />
       )}
 
@@ -110,6 +130,16 @@ function SEO({
 
       {imageUrl && (
         <meta name="twitter:image" content={imageUrl} />
+      )}
+
+      {imageUrl && (
+        <meta
+          name="twitter:image:alt"
+          content={
+            imageAlt ||
+            `${title || SITE_NAME} social preview`
+          }
+        />
       )}
 
       {type === "article" && publishedTime && (
@@ -128,6 +158,10 @@ function SEO({
 
       {type === "article" && author && (
         <meta property="article:author" content={author} />
+      )}
+
+      {type === "article" && section && (
+        <meta property="article:section" content={section} />
       )}
     </Helmet>
   );

@@ -1,5 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
+import SEO from "../components/seo/SEO";
+import NotFound from "./NotFound";
 import CurrencyConverter from "../components/calculators/CurrencyConverter";
 import IncomeTaxCalculator from "../components/calculators/IncomeTaxCalculator";
 import LoanCalculator from "../components/calculators/LoanCalculator";
@@ -84,46 +85,19 @@ function ToolDetails() {
   const tool = tools.find((item) => item.slug === slug);
 
   if (!tool) {
-    return (
-      <>
-        <Helmet>
-          <title>Tool Not Found | JamaicaTools</title>
-          <meta
-            name="description"
-            content="The requested JamaicaTools tool could not be found."
-          />
-        </Helmet>
-
-        <section className="bg-slate-50 py-20">
-          <div className="mx-auto max-w-4xl px-4 text-center">
-            <h1 className="text-4xl font-bold text-slate-900">
-              Tool Not Found
-            </h1>
-
-            <p className="mt-4 text-slate-600">
-              The tool you are looking for does not exist.
-            </p>
-
-            <Link
-              to="/tools"
-              className="mt-8 inline-block rounded-full bg-green-700 px-6 py-3 font-semibold text-white transition hover:bg-green-800"
-            >
-              Back to Tools
-            </Link>
-          </div>
-        </section>
-      </>
-    );
+    return <NotFound />;
   }
 
   const ToolComponent = toolComponents[tool.slug];
 
   return (
     <>
-      <Helmet>
-        <title>{tool.seoTitle}</title>
-        <meta name="description" content={tool.seoDescription} />
-      </Helmet>
+      <SEO
+        title={tool.seoTitle || tool.title}
+        description={tool.seoDescription || tool.description}
+        canonical={`/tools/${tool.slug}`}
+        keywords={tool.keywords}
+      />
 
       <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4">
