@@ -12,6 +12,7 @@ import Terms from "../pages/Terms";
 import CookiePolicy from "../pages/CookiePolicy";
 import Disclaimer from "../pages/Disclaimer";
 import Accessibility from "../pages/Accessibility";
+import AIUsagePolicy from "../pages/AIUsagePolicy";
 import ToolDetails from "../pages/ToolDetails";
 import NotFound from "../pages/NotFound";
 
@@ -32,6 +33,7 @@ function AppRoutes() {
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/accessibility" element={<Accessibility />} />
+        <Route path="/ai-policy" element={<AIUsagePolicy />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -90,6 +90,12 @@ function Footer() {
               >
                 Accessibility
               </Link>
+              <Link
+                to="/ai-policy"
+                className="block text-slate-600 hover:text-green-700"
+              >
+                AI Usage Policy
+              </Link>
             </div>
           </div>
         </div>
