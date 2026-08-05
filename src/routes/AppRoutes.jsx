@@ -5,6 +5,7 @@ import Tools from "../pages/Tools";
 import Blog from "../pages/Blog";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import FAQ from "../pages/FAQ";
 import Privacy from "../pages/Privacy";
 import Terms from "../pages/Terms";
 import ToolDetails from "../pages/ToolDetails";
@@ -20,6 +21,7 @@ function AppRoutes() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />

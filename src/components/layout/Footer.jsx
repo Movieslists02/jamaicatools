@@ -48,6 +48,12 @@ function Footer() {
               >
                 Contact
               </Link>
+              <Link
+                to="/faq"
+                className="block text-slate-600 hover:text-green-700"
+              >
+                FAQ
+              </Link>
             </div>
           </div>
 
