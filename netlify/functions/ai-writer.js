@@ -313,7 +313,7 @@ export default async function handler(request) {
       instructions,
       input,
       reasoning: {
-        effort: "none",
+        effort: "minimal",
       },
       max_output_tokens: lengthConfig.maxOutputTokens,
     });
