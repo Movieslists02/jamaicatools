@@ -84,6 +84,12 @@ function Footer() {
               >
                 Disclaimer
               </Link>
+              <Link
+                to="/accessibility"
+                className="block text-slate-600 hover:text-green-700"
+              >
+                Accessibility
+              </Link>
             </div>
           </div>
         </div>
