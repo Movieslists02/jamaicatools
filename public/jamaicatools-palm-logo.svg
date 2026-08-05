@@ -1,0 +1,51 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  role="img"
+  aria-labelledby="title"
+>
+  <title id="title">JamaicaTools palm tree logo</title>
+
+  <rect width="64" height="64" rx="15" fill="#111111"/>
+
+  <path
+    d="M32 25
+       C27 16 18 12 9 15
+       C17 18 23 22 27 28
+       C20 24 12 25 7 31
+       C15 29 22 31 28 36
+       C24 27 19 20 11 16
+       C21 15 28 19 32 25Z"
+    fill="#009B3A"
+  />
+
+  <path
+    d="M32 25
+       C37 16 46 12 55 15
+       C47 18 41 22 37 28
+       C44 24 52 25 57 31
+       C49 29 42 31 36 36
+       C40 27 45 20 53 16
+       C43 15 36 19 32 25Z"
+    fill="#009B3A"
+  />
+
+  <circle cx="28.5" cy="26.5" r="3" fill="#F9D616"/>
+  <circle cx="35.5" cy="26.5" r="3" fill="#F9D616"/>
+  <circle cx="32" cy="30" r="3" fill="#F9D616"/>
+
+  <path
+    d="M30 29
+       C31 37 29 46 25 55
+       H36
+       C34 46 34 37 34 29Z"
+    fill="#F9D616"
+  />
+
+  <path
+    d="M12 56
+       C21 51 43 51 52 56
+       C43 60 21 60 12 56Z"
+    fill="#009B3A"
+  />
+</svg>

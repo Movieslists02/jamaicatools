@@ -30,7 +30,7 @@ function Home() {
             "@type": "Organization",
             name: "JamaicaTools",
             url: "https://jamaicatools.com/",
-            logo: "https://jamaicatools.com/favicon.svg",
+            logo: "https://jamaicatools.com/jamaicatools-palm-logo.svg",
             description:
               "Free online calculators, PDF tools, image utilities, AI resources and practical guides for Jamaica and the Caribbean.",
             founder: {

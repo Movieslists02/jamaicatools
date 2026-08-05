@@ -113,9 +113,12 @@ function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" className="inline-flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-green-700 font-bold text-white">
-                JT
-              </span>
+              <img
+                src="/jamaicatools-palm-logo.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-11 w-11 rounded-2xl"
+              />
 
               <div>
                 <p className="text-xl font-bold leading-none text-slate-900">
@@ -173,7 +176,21 @@ function Footer() {
               rel="noopener noreferrer"
               className="font-medium text-slate-600 transition hover:text-green-700 hover:underline"
             >
-              Betterworks Communication
+              <span className="inline-flex items-center gap-1.5">
+                <img
+                  src="/jamaicatools-palm-logo.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-4 w-4 rounded"
+                />
+                Betterworks Communication
+                <img
+                  src="/jamaicatools-palm-logo.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-4 w-4 rounded"
+                />
+              </span>
             </a>
           </p>
         </div>
