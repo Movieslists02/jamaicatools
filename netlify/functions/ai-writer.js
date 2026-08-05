@@ -304,8 +304,9 @@ export default async function handler(request) {
     });
 
     const client = new OpenAI({
-      apiKey,
-    });
+  apiKey: process.env.OPENAI_KEY,
+  baseURL: "https://api.openai.com/v1",
+});
 
     const response = await client.responses.create({
       model: MODEL,
