@@ -107,6 +107,12 @@ function FooterLinkGroup({ title, links }) {
 function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const openCookiePreferences = () => {
+    window.dispatchEvent(
+      new Event("jamaicatools:open-cookie-preferences"),
+    );
+  };
+
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-12">
@@ -178,7 +184,7 @@ function Footer() {
               className="inline-flex items-center gap-1.5 font-medium text-slate-600 transition hover:text-green-700 hover:underline"
             >
               <img
-                src="/jamaicatools-palm-logo.svg"
+                src="/betterworks-palm-mark.svg"
                 alt=""
                 aria-hidden="true"
                 className="h-4 w-4 shrink-0 rounded"
@@ -187,7 +193,7 @@ function Footer() {
               <span>Betterworks Communication</span>
 
               <img
-                src="/jamaicatools-palm-logo.svg"
+                src="/betterworks-palm-mark.svg"
                 alt=""
                 aria-hidden="true"
                 className="h-4 w-4 shrink-0 rounded"
