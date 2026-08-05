@@ -72,6 +72,12 @@ function Footer() {
               >
                 Terms & Conditions
               </Link>
+              <Link
+                to="/cookies"
+                className="block text-slate-600 hover:text-green-700"
+              >
+                Cookie Policy
+              </Link>
             </div>
           </div>
         </div>

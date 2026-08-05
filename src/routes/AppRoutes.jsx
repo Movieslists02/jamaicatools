@@ -9,6 +9,7 @@ import Contact from "../pages/Contact";
 import FAQ from "../pages/FAQ";
 import Privacy from "../pages/Privacy";
 import Terms from "../pages/Terms";
+import CookiePolicy from "../pages/CookiePolicy";
 import ToolDetails from "../pages/ToolDetails";
 import NotFound from "../pages/NotFound";
 
@@ -26,6 +27,7 @@ function AppRoutes() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
