@@ -168,29 +168,30 @@ function Footer() {
         <div className="mt-12 flex flex-col gap-4 border-t border-slate-200 pt-7 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} JamaicaTools. All rights reserved.</p>
 
-          <p>
-            Built by{" "}
+          <p className="inline-flex items-center gap-1.5">
+            <span>Built by</span>
+
             <a
               href="https://bc-da.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-slate-600 transition hover:text-green-700 hover:underline"
+              className="inline-flex items-center gap-1.5 font-medium text-slate-600 transition hover:text-green-700 hover:underline"
             >
-              <span className="inline-flex items-center gap-1.5">
-                <img
-                  src="/jamaicatools-palm-logo.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="h-4 w-4 rounded"
-                />
-                Betterworks Communication
-                <img
-                  src="/jamaicatools-palm-logo.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="h-4 w-4 rounded"
-                />
-              </span>
+              <img
+                src="/jamaicatools-palm-logo.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-4 w-4 shrink-0 rounded"
+              />
+
+              <span>Betterworks Communication</span>
+
+              <img
+                src="/jamaicatools-palm-logo.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-4 w-4 shrink-0 rounded"
+              />
             </a>
           </p>
         </div>
