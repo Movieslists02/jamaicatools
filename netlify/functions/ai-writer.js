@@ -1,4 +1,3 @@
-import crypto from "node:crypto";
 import OpenAI from "openai";
 
 const MODEL = "gpt-5";
@@ -270,43 +269,10 @@ export default async function handler(request) {
   try {
     const apiKey = process.env.OPENAI_KEY?.trim();
 
-    console.log("OpenAI environment diagnostic:", {
-      keyPresent: Boolean(apiKey),
-      keyLength: apiKey?.length ?? 0,
-      keyPrefix: apiKey ? `${apiKey.slice(0, 7)}...` : "missing",
-      keyFingerprint: apiKey
-        ? crypto
-            .createHash("sha256")
-            .update(apiKey)
-            .digest("hex")
-            .slice(0, 16)
-        : "missing",
-      configuredBaseURL: process.env.OPENAI_BASE_URL || "default",
-    });
-
-    const authCheckResponse = await fetch(
-      "https://api.openai.com/v1/models",
-      {
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-        },
-      },
-    );
-
-    const authCheckBody = await authCheckResponse.text();
-
-    console.log("Direct OpenAI authentication check:", {
-      status: authCheckResponse.status,
-      ok: authCheckResponse.ok,
-      responsePreview: authCheckResponse.ok
-        ? "Authentication succeeded."
-        : authCheckBody.slice(0, 500),
-    });
-
     const client = new OpenAI({
-  apiKey: process.env.OPENAI_KEY,
-  baseURL: "https://api.openai.com/v1",
-});
+      apiKey,
+      baseURL: "https://api.openai.com/v1",
+    });
 
     const response = await client.responses.create({
       model: MODEL,
