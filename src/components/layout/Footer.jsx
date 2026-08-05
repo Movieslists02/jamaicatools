@@ -78,6 +78,12 @@ function Footer() {
               >
                 Cookie Policy
               </Link>
+              <Link
+                to="/disclaimer"
+                className="block text-slate-600 hover:text-green-700"
+              >
+                Disclaimer
+              </Link>
             </div>
           </div>
         </div>
