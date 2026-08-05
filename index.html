@@ -4,10 +4,65 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jamaicatools</title>
+    <meta
+      name="description"
+      content="Free online calculators, PDF tools, image utilities and AI resources for Jamaica and the Caribbean."
+    />
+    <title>JamaicaTools | Free Online Tools for the Caribbean</title>
   </head>
+
   <body>
+    <form
+      name="jamaicatools-contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="jamaicatools-contact" />
+
+      <label>
+        Do not fill this out:
+        <input name="bot-field" />
+      </label>
+
+      <label>
+        Name:
+        <input name="name" type="text" />
+      </label>
+
+      <label>
+        Email:
+        <input name="email" type="email" />
+      </label>
+
+      <label>
+        Inquiry:
+        <select name="inquiry">
+          <option value="general">General Question</option>
+          <option value="tool-suggestion">Suggest a Tool</option>
+          <option value="bug-report">Report a Problem</option>
+          <option value="business">
+            Business or Partnership Inquiry
+          </option>
+          <option value="privacy">Privacy or Data Question</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+
+      <label>
+        Subject:
+        <input name="subject" type="text" />
+      </label>
+
+      <label>
+        Message:
+        <textarea name="message"></textarea>
+      </label>
+    </form>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
