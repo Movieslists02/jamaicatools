@@ -9,7 +9,7 @@ function CTA() {
         </p>
 
         <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
-          Hundreds of free tools.
+          Dozens of useful free tools.
           <br />
           Zero sign-up required.
         </h2>
