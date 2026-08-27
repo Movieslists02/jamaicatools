@@ -172,16 +172,27 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-slate-200 pt-7 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} JamaicaTools. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <p>© {currentYear} JamaicaTools. All rights reserved.</p>
 
-          <p className="inline-flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={openCookiePreferences}
+              className="font-medium text-slate-500 transition hover:text-green-700"
+            >
+              Cookie Settings
+            </button>
+          </div>
+
+          <p className="inline-fle
+          x items-center gap-1.5">
             <span>Built by</span>
 
             <a
               href="https://bc-da.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-medium text-slate-600 transition hover:text-green-700 hover:underline"
+              className="inline-flex items-center gap-1.5 font-medium text-slate-600 transition hover:text-green-700"
             >
               <img
                 src="/betterworks-palm-mark.svg"

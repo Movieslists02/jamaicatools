@@ -594,8 +594,8 @@ function Contact() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">
-              Browse the tool directory or check the upcoming FAQ page for
-              answers to common questions about JamaicaTools.
+              Browse the tool directory or check our FAQ page for answers to
+              common questions about JamaicaTools.
             </p>
 
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">

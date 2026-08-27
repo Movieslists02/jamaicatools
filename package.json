@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "generate:sitemap": "node scripts/generate-sitemap.js",
-    "audit:site": "npm run generate:sitemap && node scripts/audit-site.js"
+    "audit:site": "npm run generate:sitemap && node scripts/audit-site.js",
+    "audit:adsense": "npm run generate:sitemap && node scripts/audit-adsense-readiness.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.2",
