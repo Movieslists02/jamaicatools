@@ -208,26 +208,7 @@ function ToolDetails() {
               </p>
 
               <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
-                {ToolComponent ? (
-                  <ToolComponent />
-                ) : (
-                  <div className="py-10 text-center">
-                    <h2 className="text-2xl font-bold text-slate-900">
-                      Tool Coming Soon
-                    </h2>
-
-                    <p className="mt-3 text-slate-600">
-                      This tool is listed but is not available yet.
-                    </p>
-
-                    <Link
-                      to="/tools"
-                      className="mt-6 inline-block font-semibold text-green-700 hover:text-green-800"
-                    >
-                      Browse available tools →
-                    </Link>
-                  </div>
-                )}
+                <ToolComponent />
               </div>
             </main>
 
